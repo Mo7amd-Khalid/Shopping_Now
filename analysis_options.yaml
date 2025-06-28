@@ -1,0 +1,40 @@
+# Include Flutter's recommended lints
+include: package:flutter_lints/flutter.yaml
+
+# Customize analyzer settings
+analyzer:
+  # Enable strict type checks (optional, recommended for robustness)
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+  # Exclude specific files or folders from analysis (optional)
+  exclude:
+    - "**/*.g.dart"         # Generated files
+    - "**/*.freezed.dart"   # Freezed generated files
+    - "lib/generated/**"    # Custom generated folder
+
+# Define linting rules
+linter:
+  rules:
+    # Enforce const usage where possible
+    - prefer_const_constructors
+    - prefer_const_literals_to_create_immutables
+    - prefer_const_declarations
+
+    # Common Flutter-specific rules
+    - avoid_print                # Discourage print statements in production
+    - use_key_in_widget_constructors  # Require keys in widget constructors
+    - avoid_unnecessary_containers    # Warn about redundant Containers
+    - sort_child_properties_last      # Enforce sorting of child properties
+
+    # General Dart rules
+    - always_declare_return_types    # Require explicit return types
+    - camel_case_types               # Enforce camelCase for types
+    - unnecessary_brace_in_string_interps  # Warn about unnecessary braces in string interpolation
+    - annotate_overrides
+    - use_to_and_as_if_applicable
+    - file_names
+    - cancel_subscriptions
+    - await_only_futures
+    - avoid_void_async
+    - void_checks
