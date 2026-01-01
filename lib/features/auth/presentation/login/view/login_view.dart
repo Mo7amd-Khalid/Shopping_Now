@@ -13,7 +13,6 @@ import '../../../../../core/utils/resources.dart';
 import 'cubit/login_cubit.dart';
 import 'cubit/login_state.dart';
 
-
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -44,7 +43,7 @@ class _LoginState extends State<Login> {
               toastPosition: Position.bottom,
               title: Text(
                 navigationState.message,
-                style: const TextStyle(color: Colors.black,),
+                style: const TextStyle(color: Colors.black),
                 textAlign: TextAlign.center,
               ),
             ).show(context);
@@ -56,10 +55,14 @@ class _LoginState extends State<Login> {
               toastPosition: Position.bottom,
               title: Text(
                 navigationState.message,
-                style: const TextStyle(color: Colors.black,),
+                style: const TextStyle(color: Colors.black),
                 textAlign: TextAlign.center,
               ),
             ).show(context);
+          }
+        case GoToForgetPasswordScreen():
+          {
+            Navigator.pushReplacementNamed(context, Routes.forgetPasswordRoute);
           }
       }
     });
@@ -84,21 +87,14 @@ class _LoginState extends State<Login> {
                     const SizedBox(height: 40),
                     Text(
                       AppLocalizations.of(context)!.welcomeBackToRoute,
-                      style: Theme
-                          .of(
+                      style: Theme.of(
                         context,
-                      )
-                          .textTheme
-                          .titleMedium!
-                          .copyWith(color: AppColors.white),
+                      ).textTheme.titleMedium!.copyWith(color: AppColors.white),
                     ),
 
                     Text(
                       AppLocalizations.of(context)!.pleaseSignInWithYourMail,
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyMedium,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     const SizedBox(height: 16),
                     AuthTextField(
@@ -109,12 +105,24 @@ class _LoginState extends State<Login> {
                     ),
                     const SizedBox(height: 16),
 
-                    AuthTextField(
-                      title: AppLocalizations.of(context)!.enterYourPassword,
-                      hintText: AppLocalizations.of(context)!.password,
-                      validator: Validation.validatePassword,
-                      obscureText: true,
-                      controller: passwordController,
+                    BlocBuilder<LoginCubit, LoginState>(
+                      builder: (_, state) => AuthTextField(
+                        title: AppLocalizations.of(context)!.enterYourPassword,
+                        hintText: AppLocalizations.of(context)!.password,
+                        validator: Validation.validatePassword,
+                        obscureText: state.isObscureText,
+                        controller: passwordController,
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            cubit.doActions(ChangeVisibility());
+                          },
+                          icon: Icon(
+                            state.isObscureText
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                        ),
+                      ),
                     ),
 
                     Row(
@@ -122,14 +130,11 @@ class _LoginState extends State<Login> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            // TODO:  Navigate to forget password
+                            cubit.doActions(NavigatorToForgetPasswordAction());
                           },
                           child: Text(
                             AppLocalizations.of(context)!.forgetPassword,
-                            style: Theme
-                                .of(context)
-                                .textTheme
-                                .bodySmall!
+                            style: Theme.of(context).textTheme.bodySmall!
                                 .copyWith(color: AppColors.white),
                           ),
                         ),
@@ -137,31 +142,28 @@ class _LoginState extends State<Login> {
                     ),
                     const SizedBox(height: 20),
                     BlocBuilder<LoginCubit, LoginState>(
-                      builder: (_, state) =>
-                          ElevatedButton(
-                            onPressed: () {
-                              if (formKey.currentState!.validate()) {
-                                cubit.doActions(LoginUserAction(
-                                    email: emailController.text,
-                                    password: passwordController.text));
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.white),
-                            child: state.loginResources.state == States.loading
-                                ? const Center(
-                                child: CircularProgressIndicator())
-                                : Text(
-                              AppLocalizations.of(context)!.signIn,
-                              style: Theme
-                                  .of(
-                                context,
-                              )
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(color: AppColors.darkBlue),
-                            ),
-                          ),
+                      builder: (_, state) => ElevatedButton(
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            cubit.doActions(
+                              LoginUserAction(
+                                email: emailController.text,
+                                password: passwordController.text,
+                              ),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.white,
+                        ),
+                        child: state.loginResources.state == States.loading
+                            ? const Center(child: CircularProgressIndicator())
+                            : Text(
+                                AppLocalizations.of(context)!.signIn,
+                                style: Theme.of(context).textTheme.titleMedium!
+                                    .copyWith(color: AppColors.darkBlue),
+                              ),
+                      ),
                     ),
 
                     const SizedBox(height: 16),
@@ -171,10 +173,7 @@ class _LoginState extends State<Login> {
                       children: [
                         Text(
                           AppLocalizations.of(context)!.dontHaveAnAccount,
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .bodySmall!
+                          style: Theme.of(context).textTheme.bodySmall!
                               .copyWith(color: AppColors.white),
                         ),
                         TextButton(
@@ -184,10 +183,7 @@ class _LoginState extends State<Login> {
 
                           child: Text(
                             AppLocalizations.of(context)!.createAccount,
-                            style: Theme
-                                .of(context)
-                                .textTheme
-                                .bodySmall!
+                            style: Theme.of(context).textTheme.bodySmall!
                                 .copyWith(color: AppColors.white),
                           ),
                         ),

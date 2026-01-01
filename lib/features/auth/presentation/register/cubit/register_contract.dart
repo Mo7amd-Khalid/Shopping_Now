@@ -4,11 +4,20 @@ import 'package:route_e_commerce_v2/core/utils/resources.dart';
 class RegisterState {
   Resources<String> registerResources;
 
-  RegisterState({this.registerResources = const Resources.initial()});
+  bool isObscurePassword;
+  bool isObscureConfirmPassword;
 
-  RegisterState copyWith(Resources<String>? resource) {
+  RegisterState({
+    this.registerResources = const Resources.initial(),
+    this.isObscureConfirmPassword = true,
+    this.isObscurePassword = true,
+  });
+
+  RegisterState copyWith({Resources<String>? resource, bool? passwordObscure, bool? confirmPasswordObscure}) {
     return RegisterState(
-        registerResources: resource ?? registerResources
+        registerResources: resource ?? registerResources,
+      isObscurePassword:  passwordObscure ?? isObscurePassword,
+      isObscureConfirmPassword: confirmPasswordObscure?? isObscureConfirmPassword
     );
   }
 }
@@ -17,6 +26,7 @@ class RegisterState {
 sealed class RegisterActions {}
 
 class GoToLoginAction extends RegisterActions {}
+
 class RegistrationAction extends RegisterActions {
   String name;
   String email;
@@ -25,6 +35,10 @@ class RegistrationAction extends RegisterActions {
 
   RegistrationAction(this.name,this.email,this.password,this.rePassword);
 }
+
+class ChangePasswordVisibility extends RegisterActions{}
+
+class ChangeConfirmationPasswordVisibility extends RegisterActions{}
 
 
 sealed class RegisterNavigation {}

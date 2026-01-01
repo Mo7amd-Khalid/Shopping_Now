@@ -35,7 +35,8 @@ class MyApp extends StatelessWidget {
       locale: const Locale("en"),
       theme: AppTheme.getLightThemeData(),
       onGenerateRoute: AppRouter.generateRoute,
-      initialRoute: token == null ? Routes.loginRoute : Routes.navigationRoute,
+      initialRoute: Routes.loginRoute,
+      //token != null ? Routes.navigationRoute :
     );
   }
 }
