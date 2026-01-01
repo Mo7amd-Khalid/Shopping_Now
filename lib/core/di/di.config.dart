@@ -25,6 +25,10 @@ import '../../features/auth/data/data_source/impl/auth_remote_data_source_impl.d
 import '../../features/auth/data/repo_impl/auth_repo_impl.dart' as _i279;
 import '../../features/auth/domain/repository/auth_repo.dart' as _i976;
 import '../../features/auth/domain/use_case/auth_use_case.dart' as _i701;
+import '../../features/auth/domain/use_case/forget_password_use_case.dart'
+    as _i90;
+import '../../features/auth/presentation/forget_password/cubit/forget_password_cubit.dart'
+    as _i995;
 import '../../features/auth/presentation/login/view/cubit/login_cubit.dart'
     as _i14;
 import '../../features/auth/presentation/register/cubit/register_cubit.dart'
@@ -62,6 +66,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i701.AuthUseCase>(
       () => _i701.AuthUseCase(gh<_i976.AuthRepo>()),
+    );
+    gh.factory<_i90.ForgetPasswordUseCase>(
+      () => _i90.ForgetPasswordUseCase(gh<_i976.AuthRepo>()),
+    );
+    gh.factory<_i995.ForgetPasswordCubit>(
+      () => _i995.ForgetPasswordCubit(gh<_i90.ForgetPasswordUseCase>()),
     );
     gh.factory<_i14.LoginCubit>(() => _i14.LoginCubit(gh<_i701.AuthUseCase>()));
     gh.factory<_i404.RegisterCubit>(

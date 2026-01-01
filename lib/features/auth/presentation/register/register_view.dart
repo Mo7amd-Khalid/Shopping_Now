@@ -93,25 +93,49 @@ class _RegisterViewState extends State<RegisterView> {
                   controller: emailController,
                 ),
                 12.verticalSpace,
-                AuthTextField(
-                  title: "Password",
-                  hintText: "Password",
-                  validator: Validation.validatePassword,
-                  controller: passwordController,
-                  obscureText: true,
+                BlocBuilder<RegisterCubit, RegisterState>(
+                  builder: (_,state) => AuthTextField(
+                    title: "Password",
+                    hintText: "Password",
+                    validator: Validation.validatePassword,
+                    controller: passwordController,
+                    obscureText: state.isObscurePassword,
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        cubit.doActions(ChangePasswordVisibility());
+                      },
+                      icon: Icon(
+                        state.isObscurePassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                    ),
+                  ),
                 ),
                 12.verticalSpace,
-                AuthTextField(
-                  title: "Confirmation Password",
-                  hintText: "Confirmation Password",
-                  validator: (value) {
-                    return Validation.validateConfirmPassword(
-                      password: passwordController.text,
-                      confirmPassword: rePasswordController.text,
-                    );
-                  },
-                  controller: rePasswordController,
-                  obscureText: true,
+                BlocBuilder<RegisterCubit, RegisterState>(
+                  builder: (_,state) => AuthTextField(
+                    title: "Confirmation Password",
+                    hintText: "Confirmation Password",
+                    validator: (value) {
+                      return Validation.validateConfirmPassword(
+                        password: passwordController.text,
+                        confirmPassword: rePasswordController.text,
+                      );
+                    },
+                    controller: rePasswordController,
+                    obscureText: state.isObscureConfirmPassword,
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        cubit.doActions(ChangeConfirmationPasswordVisibility());
+                      },
+                      icon: Icon(
+                        state.isObscureConfirmPassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                    ),
+                  ),
                 ),
                 20.verticalSpace,
                 BlocBuilder<RegisterCubit, RegisterState>(

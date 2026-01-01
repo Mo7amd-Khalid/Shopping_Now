@@ -7,6 +7,8 @@ class AuthTextField extends StatelessWidget {
   final TextEditingController? controller;
   final bool obscureText;
   final String? Function(String?)? validator;
+  final Widget? suffixIcon;
+
 
   const AuthTextField({
     super.key,
@@ -15,6 +17,7 @@ class AuthTextField extends StatelessWidget {
     this.validator,
     this.controller,
     this.obscureText = false,
+    this.suffixIcon
   });
 
   @override
@@ -31,7 +34,6 @@ class AuthTextField extends StatelessWidget {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           obscureText: obscureText,
           decoration: InputDecoration(
-
             hintText: hintText,
             filled: true,
             fillColor: Colors.white,
@@ -47,8 +49,10 @@ class AuthTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(color: Colors.blue[700]!, width: 2),
             ),
+            suffixIcon: suffixIcon
           ),
           style: const TextStyle(color: Colors.black87),
+
 
         ),
       ],

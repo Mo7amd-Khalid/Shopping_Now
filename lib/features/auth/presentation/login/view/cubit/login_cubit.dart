@@ -23,6 +23,12 @@ class LoginCubit extends BaseCubit<LoginState, LoginActions, LoginNavigation>{
         _login(action.email, action.password);
 
       }
+      case NavigatorToForgetPasswordAction():{
+       _navigatorToForgetPasswordScreen();
+      }
+      case ChangeVisibility():{
+        _changeVisibility();
+      }
     }
   }
 
@@ -30,20 +36,28 @@ class LoginCubit extends BaseCubit<LoginState, LoginActions, LoginNavigation>{
     emitNavigation(GoToRegisterScreen());
   }
 
+  void _navigatorToForgetPasswordScreen(){
+    emitNavigation(GoToForgetPasswordScreen());
+  }
   Future<void> _login(String email, String password) async{
-    emit(state.copyWith(const Resources.loading()));
+    emit(state.copyWith(loginResources:  const Resources.loading()));
     var response = await authUseCase.login(email: email, password: password);
     switch (response) {
 
       case Success<AuthResponseDto>():{
         emitNavigation(GoToHomeScreen("Login Done Successfully"));
-        emit(state.copyWith(Resources.success(data: response.data)));
+        emit(state.copyWith(loginResources:  Resources.success(data: response.data)));
       }
       case Failure<AuthResponseDto>():{
         emitNavigation(ShowToastError(response.errorMessage));
-        emit(state.copyWith(Resources.failure(exception: response.exception, message: response.errorMessage)));
+        emit(state.copyWith(loginResources: Resources.failure(exception: response.exception, message: response.errorMessage)));
       }
     }
 
+  }
+
+  // todo make action of this func
+  void _changeVisibility(){
+    emit(state.copyWith(obscureText: !state.isObscureText));
   }
 }

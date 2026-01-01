@@ -1,36 +1,56 @@
 import 'package:route_e_commerce_v2/core/utils/resources.dart';
 import 'package:route_e_commerce_v2/features/auth/data/models/auth_response_dto.dart';
 
-class LoginState{
-
+class LoginState {
   Resources<AuthResponseDto> loginResources;
-  LoginState({this.loginResources = const Resources.initial()});
 
-  LoginState copyWith(Resources<AuthResponseDto>? loginResources){
-    return LoginState(loginResources: loginResources ?? this.loginResources);
+  bool isObscureText;
+
+  LoginState({
+    this.loginResources = const Resources.initial(),
+    this.isObscureText = true,
+  });
+
+  LoginState copyWith({
+    Resources<AuthResponseDto>? loginResources,
+    bool? obscureText,
+  }) {
+    return LoginState(
+      loginResources: loginResources ?? this.loginResources,
+      isObscureText: obscureText ?? isObscureText,
+    );
   }
 }
 
+sealed class LoginActions {}
 
-sealed class LoginActions{}
+class NavigatorToRegisterAction extends LoginActions {}
 
-class NavigatorToRegisterAction extends LoginActions{}
-class LoginUserAction extends LoginActions{
+class NavigatorToForgetPasswordAction extends LoginActions {}
+
+class LoginUserAction extends LoginActions {
   String email;
   String password;
 
   LoginUserAction({required this.email, required this.password});
 }
 
-sealed class LoginNavigation{}
+class ChangeVisibility extends LoginActions{}
 
-class GoToRegisterScreen extends LoginNavigation{}
-class GoToHomeScreen extends LoginNavigation{
+sealed class LoginNavigation {}
+
+class GoToRegisterScreen extends LoginNavigation {}
+
+class GoToForgetPasswordScreen extends LoginNavigation {}
+
+class GoToHomeScreen extends LoginNavigation {
   String message;
+
   GoToHomeScreen(this.message);
 }
-class ShowToastError extends LoginNavigation{
+
+class ShowToastError extends LoginNavigation {
   String message;
+
   ShowToastError(this.message);
 }
-

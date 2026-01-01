@@ -22,6 +22,12 @@ class RegisterCubit
         {
           _signUp(action);
         }
+      case ChangePasswordVisibility():{
+        _changePasswordVisibility();
+      }
+      case ChangeConfirmationPasswordVisibility():{
+        _changeConfirmationPasswordVisibility();
+      }
     }
   }
 
@@ -30,7 +36,7 @@ class RegisterCubit
   }
 
   Future<void> _signUp(RegistrationAction action)async{
-    emit(state.copyWith(const Resources.loading()));
+    emit(state.copyWith(resource:  const Resources.loading()));
     var response = await authUseCase.signUp(
         name: action.name,
         email: action.email,
@@ -41,13 +47,21 @@ class RegisterCubit
 
       case Success<String>():{
         emitNavigation(ShowSuccessToast("Registration Done Successfully"));
-        emit(state.copyWith(Resources.success(data: response.data)));
+        emit(state.copyWith(resource: Resources.success(data: response.data)));
       }
       case Failure<String>():{
         emitNavigation(ShowErrorToast(response.errorMessage));
-        emit(state.copyWith(Resources.failure(exception: response.exception, message: response.errorMessage)));
+        emit(state.copyWith(resource: Resources.failure(exception: response.exception, message: response.errorMessage)));
       }
     }
 
+  }
+
+  void _changePasswordVisibility(){
+    emit(state.copyWith(passwordObscure: !state.isObscurePassword));
+  }
+
+  void _changeConfirmationPasswordVisibility(){
+    emit(state.copyWith(confirmPasswordObscure: !state.isObscureConfirmPassword));
   }
 }
