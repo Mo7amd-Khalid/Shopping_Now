@@ -30,6 +30,7 @@ dependencies:
   json_annotation:
   cherry_toast: ^1.13.0
   shared_preferences:
+  shimmer: ^3.0.0
 
 
 dev_dependencies:

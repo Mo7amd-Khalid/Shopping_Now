@@ -33,6 +33,25 @@ import '../../features/auth/presentation/login/view/cubit/login_cubit.dart'
     as _i14;
 import '../../features/auth/presentation/register/cubit/register_cubit.dart'
     as _i404;
+import '../../features/commerce/data/data_source/contract/get_categories_remote_datasource.dart'
+    as _i619;
+import '../../features/commerce/data/data_source/contract/get_product_remote.dart'
+    as _i445;
+import '../../features/commerce/data/data_source/impl/get_categories_remote_datasource_impl.dart'
+    as _i606;
+import '../../features/commerce/data/data_source/impl/get_product_remote_impl.dart'
+    as _i932;
+import '../../features/commerce/data/repo_impl/commerce_repo_impl.dart'
+    as _i195;
+import '../../features/commerce/domain/repository/commerce_repo.dart' as _i48;
+import '../../features/commerce/domain/use_case/commerce_use_case.dart'
+    as _i669;
+import '../../features/commerce/presentation/navigation_layout/products/cubit/product_list_cubit.dart'
+    as _i2;
+import '../../features/commerce/presentation/navigation_layout/tabs/categories/cubit/cubit.dart'
+    as _i86;
+import '../../features/commerce/presentation/navigation_layout/tabs/home/cubit/cubit.dart'
+    as _i1054;
 import '../../network/api_client.dart' as _i972;
 import 'provide_dio.dart' as _i833;
 import 'provide_shared_preferences.dart' as _i18;
@@ -55,6 +74,18 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i887.AuthLocalDataSourceImpl(gh<_i460.SharedPreferences>()),
     );
     gh.singleton<_i972.ApiClient>(() => _i972.ApiClient(gh<_i361.Dio>()));
+    gh.factory<_i619.GetCategoriesRemoteDatasource>(
+      () => _i606.GetCategoriesRemoteDatasourceImpl(gh<_i972.ApiClient>()),
+    );
+    gh.factory<_i445.GetProductRemote>(
+      () => _i932.GetProductRemoteImpl(gh<_i972.ApiClient>()),
+    );
+    gh.factory<_i48.CommerceRepo>(
+      () => _i195.CommerceRepoImpl(
+        gh<_i619.GetCategoriesRemoteDatasource>(),
+        gh<_i445.GetProductRemote>(),
+      ),
+    );
     gh.factory<_i78.AuthRemoteDataSource>(
       () => _i1071.AuthRemoteDataSourceImpl(gh<_i972.ApiClient>()),
     );
@@ -63,6 +94,18 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i78.AuthRemoteDataSource>(),
         gh<_i625.AuthLocalDataSource>(),
       ),
+    );
+    gh.factory<_i669.CommerceUseCase>(
+      () => _i669.CommerceUseCase(gh<_i48.CommerceRepo>()),
+    );
+    gh.factory<_i2.ProductListCubit>(
+      () => _i2.ProductListCubit(gh<_i669.CommerceUseCase>()),
+    );
+    gh.factory<_i86.CategoryTabCubit>(
+      () => _i86.CategoryTabCubit(gh<_i669.CommerceUseCase>()),
+    );
+    gh.factory<_i1054.HomeTabCubit>(
+      () => _i1054.HomeTabCubit(gh<_i669.CommerceUseCase>()),
     );
     gh.factory<_i701.AuthUseCase>(
       () => _i701.AuthUseCase(gh<_i976.AuthRepo>()),

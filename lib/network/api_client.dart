@@ -7,6 +7,8 @@ import 'package:route_e_commerce_v2/features/auth/data/models/login_request_dto.
 import 'package:route_e_commerce_v2/features/auth/data/models/reset_password_request.dart';
 import 'package:route_e_commerce_v2/features/auth/data/models/send_email_to_check.dart';
 import 'package:route_e_commerce_v2/features/auth/data/models/verify_code_request.dart';
+import 'package:route_e_commerce_v2/features/commerce/data/models/category_models/categories_response_dto.dart';
+import 'package:route_e_commerce_v2/features/commerce/data/models/product_list_model/pageable_product_response_dto.dart';
 import '../core/constants/api_constants.dart';
 import '../features/auth/data/models/register_request_dto.dart';
 
@@ -34,5 +36,14 @@ abstract class ApiClient {
   
   @PUT(ApiConstants.resetPassword)
   Future<ForgetPasswordResponse> resetPassword(@Body() ResetPasswordRequest request);
+
+  @GET(ApiConstants.getAllCategories)
+  Future<CategoriesResponseDto> getCategories();
+
+  @GET("/api/v1/categories/{categoryId}}/subcategories")
+  Future<CategoriesResponseDto> getSubCategory(@Path("categoryId") String categoryId);
+
+  @GET(ApiConstants.getAllProducts)
+  Future<PageableProductResponseDto> getProductList(@Query("category[in]") String categoryId, @Query("page") int page, {@Query("limit") int limit = 10});
 
 }
