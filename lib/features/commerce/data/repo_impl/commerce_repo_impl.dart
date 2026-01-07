@@ -24,7 +24,7 @@ class CommerceRepoImpl implements CommerceRepo{
     switch (response) {
       case Success<List<CategoryDto>>():{
         var categories = CommerceMapper.createCategoriseList(response.data??[]);
-        return Success(categories);
+        return Success(data: categories);
       }
       case Failure<List<CategoryDto>>():{
         return Failure(response.exception, response.errorMessage);
@@ -38,7 +38,7 @@ class CommerceRepoImpl implements CommerceRepo{
     var response = await _productRemoteDatasource.getProductList(categoryId, page);
     switch (response) {
       case Success<PageableProductResponseDto>():{
-        return Success(CommerceMapper.convertPageableProductDtoToPageableProducts(response.data!));
+        return Success(data: CommerceMapper.convertPageableProductDtoToPageableProducts(response.data!));
       }
       case Failure<PageableProductResponseDto>():{
         return Failure(response.exception, response.errorMessage);

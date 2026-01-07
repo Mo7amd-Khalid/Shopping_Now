@@ -9,6 +9,8 @@ import 'package:route_e_commerce_v2/features/commerce/domain/entities/category.d
 import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
 import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products/cubit/product_list_contract.dart';
 import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products/cubit/product_list_cubit.dart';
+import 'package:route_e_commerce_v2/features/order/presentation/cubit/cart_cubit.dart';
+import 'package:route_e_commerce_v2/features/order/presentation/cubit/contract.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ProductListView extends StatefulWidget {
@@ -22,11 +24,13 @@ class ProductListView extends StatefulWidget {
 
 class _ProductListViewState extends State<ProductListView> {
   ProductListCubit cubit = getIt();
+  CartCubit cartCubit = getIt();
 
   @override
   void initState() {
     super.initState();
     cubit.doActions(LoadPageableProductsList(widget.category.id ?? ""));
+    cartCubit.doActions(LoadUserCartList());
   }
 
   @override

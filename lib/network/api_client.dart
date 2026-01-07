@@ -9,6 +9,7 @@ import 'package:route_e_commerce_v2/features/auth/data/models/send_email_to_chec
 import 'package:route_e_commerce_v2/features/auth/data/models/verify_code_request.dart';
 import 'package:route_e_commerce_v2/features/commerce/data/models/category_models/categories_response_dto.dart';
 import 'package:route_e_commerce_v2/features/commerce/data/models/product_list_model/pageable_product_response_dto.dart';
+import 'package:route_e_commerce_v2/features/order/data/models/cart_response_dto.dart';
 import '../core/constants/api_constants.dart';
 import '../features/auth/data/models/register_request_dto.dart';
 
@@ -46,4 +47,15 @@ abstract class ApiClient {
   @GET(ApiConstants.getAllProducts)
   Future<PageableProductResponseDto> getProductList(@Query("category[in]") String categoryId, @Query("page") int page, {@Query("limit") int limit = 10});
 
+  @GET(ApiConstants.cart)
+  Future<CartResponseDto> getUserCartList();
+
+  @POST(ApiConstants.cart)
+  Future<CartResponseDto> addProductToCart(@Body() Map<String, String> productId);
+
+  @PUT("/api/v1/cart/{id}")
+  Future<CartResponseDto> updateProductToCart(@Path("id") String productId, @Body() Map<String, String> count);
+
+  @DELETE("/api/v1/cart/{id}")
+  Future<CartResponseDto> removeProductToCart(@Path("id") String productId);
 }

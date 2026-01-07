@@ -20,7 +20,7 @@ class GetProductRemoteImpl implements GetProductRemote{
         {
           return Failure(EmptyPageableProductListException(), "There is no products to show");
         }
-      return Success(response);
+      return Success(data: response);
     });
 
   }

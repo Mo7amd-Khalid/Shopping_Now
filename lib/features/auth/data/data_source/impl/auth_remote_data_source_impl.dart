@@ -39,7 +39,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{
       if(response.statusMsg != null) {
         return Failure(AuthException(), response.message ?? "");
       }
-      return Success(response);
+      return Success(data: response);
     });
   }
 
@@ -52,7 +52,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{
         {
           return Failure(AuthException(), response.message??"");
         }
-      return Success(response);
+      return Success(data: response);
     });
   }
 
@@ -66,7 +66,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{
           return Failure(AuthException(), response.message ?? "");
         }
 
-      return Success(response);
+      return Success(data: response);
     });
   }
 
@@ -81,7 +81,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{
           return Failure(AuthException(), response.message ?? "");
         }
 
-      return Success(response);
+      return Success(data: response);
     });
 
 
@@ -101,7 +101,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{
           return Failure(AuthException(), response.message ?? "");
         }
 
-      return Success(response);
+      return Success(data: response);
     });
   }
 }

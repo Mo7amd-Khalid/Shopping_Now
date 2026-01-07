@@ -52,6 +52,14 @@ import '../../features/commerce/presentation/navigation_layout/tabs/categories/c
     as _i86;
 import '../../features/commerce/presentation/navigation_layout/tabs/home/cubit/cubit.dart'
     as _i1054;
+import '../../features/order/data/data_source/contract/cart_remote_data_source.dart'
+    as _i572;
+import '../../features/order/data/data_source/impl/cart_remote_data_source_impl.dart'
+    as _i674;
+import '../../features/order/data/repo_impl/cart_repo_impl.dart' as _i143;
+import '../../features/order/domain/repository/cart_repository.dart' as _i137;
+import '../../features/order/domain/use_case/cart_use_case.dart' as _i257;
+import '../../features/order/presentation/cubit/cart_cubit.dart' as _i1024;
 import '../../network/api_client.dart' as _i972;
 import 'provide_dio.dart' as _i833;
 import 'provide_shared_preferences.dart' as _i18;
@@ -77,6 +85,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i619.GetCategoriesRemoteDatasource>(
       () => _i606.GetCategoriesRemoteDatasourceImpl(gh<_i972.ApiClient>()),
     );
+    gh.factory<_i572.CartRemoteDataSource>(
+      () => _i674.CartRemoteDataSourceImpl(gh<_i972.ApiClient>()),
+    );
     gh.factory<_i445.GetProductRemote>(
       () => _i932.GetProductRemoteImpl(gh<_i972.ApiClient>()),
     );
@@ -98,6 +109,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i669.CommerceUseCase>(
       () => _i669.CommerceUseCase(gh<_i48.CommerceRepo>()),
     );
+    gh.factory<_i137.CartRepository>(
+      () => _i143.CartRepoImpl(gh<_i572.CartRemoteDataSource>()),
+    );
     gh.factory<_i2.ProductListCubit>(
       () => _i2.ProductListCubit(gh<_i669.CommerceUseCase>()),
     );
@@ -113,12 +127,18 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i90.ForgetPasswordUseCase>(
       () => _i90.ForgetPasswordUseCase(gh<_i976.AuthRepo>()),
     );
+    gh.factory<_i257.CartUseCase>(
+      () => _i257.CartUseCase(gh<_i137.CartRepository>()),
+    );
     gh.factory<_i995.ForgetPasswordCubit>(
       () => _i995.ForgetPasswordCubit(gh<_i90.ForgetPasswordUseCase>()),
     );
     gh.factory<_i14.LoginCubit>(() => _i14.LoginCubit(gh<_i701.AuthUseCase>()));
     gh.factory<_i404.RegisterCubit>(
       () => _i404.RegisterCubit(gh<_i701.AuthUseCase>()),
+    );
+    gh.singleton<_i1024.CartCubit>(
+      () => _i1024.CartCubit(gh<_i257.CartUseCase>()),
     );
     return this;
   }

@@ -16,7 +16,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource{
   Future<void> saveToken(String token) async{
     safeCall(()async{
       await sharedPreferences.setString("token", token);
-      return Success(null);
+      return Success(data: null);
     });
   }
 

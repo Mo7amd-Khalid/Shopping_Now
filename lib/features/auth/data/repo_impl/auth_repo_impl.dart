@@ -30,7 +30,7 @@ class AuthRepoImpl implements AuthRepo {
       rePassword: rePassword,
     );
     return switch (response) {
-      Success<AuthResponseDto>() => Success(response.data!.token),
+      Success<AuthResponseDto>() => Success(data: response.data!.token),
       Failure<AuthResponseDto>() => Failure(
         response.exception,
         response.errorMessage,
@@ -53,7 +53,7 @@ class AuthRepoImpl implements AuthRepo {
           authLocalDataSource.saveToken(response.data!.token!);
           getIt<Dio>().options.headers[AppConstants.token] =
               response.data!.token!;
-          return Success(response.data);
+          return Success(data: response.data);
         }
       case Failure<AuthResponseDto>():
         {
@@ -70,7 +70,7 @@ class AuthRepoImpl implements AuthRepo {
 
     switch (response) {
       case Success<ForgetPasswordResponse>():
-        return Success(response.data);
+        return Success(data: response.data);
       case Failure<ForgetPasswordResponse>():
         return Failure(response.exception, response.errorMessage);
     }
@@ -83,7 +83,7 @@ class AuthRepoImpl implements AuthRepo {
     var response = await authRemoteDataSource.verifySentCode(code: code);
 
     return switch (response) {
-      Success<ForgetPasswordResponse>() => Success(response.data),
+      Success<ForgetPasswordResponse>() => Success(data: response.data),
       Failure<ForgetPasswordResponse>() => Failure(
         response.exception,
         response.errorMessage,
@@ -102,7 +102,7 @@ class AuthRepoImpl implements AuthRepo {
     );
 
     return switch (response) {
-      Success<ForgetPasswordResponse>() => Success(response.data),
+      Success<ForgetPasswordResponse>() => Success(data: response.data),
 
       Failure<ForgetPasswordResponse>() => Failure(
         response.exception,

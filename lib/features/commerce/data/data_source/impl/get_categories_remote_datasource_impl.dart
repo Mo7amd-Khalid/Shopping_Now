@@ -24,7 +24,7 @@ class GetCategoriesRemoteDatasourceImpl implements GetCategoriesRemoteDatasource
           return Failure(EmptyCategoryListException(), "There are no categories to show");
         }
 
-      return Success(response.categories);
+      return Success(data: response.categories);
     });
   }
 }
