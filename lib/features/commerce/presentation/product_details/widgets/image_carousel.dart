@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:route_e_commerce_v2/core/theme/app_colors.dart';
+import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
 import 'package:route_e_commerce_v2/core/utils/context_func.dart';
 import 'package:route_e_commerce_v2/core/utils/padding.dart';
 
@@ -42,6 +44,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
+
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: PageView.builder(
@@ -56,6 +59,21 @@ class _ImageCarouselState extends State<ImageCarousel> {
               itemCount: widget.images!.length,
             ),
           ),
+          Align(
+            alignment: Alignment.topRight,
+            child: InkWell(
+              onTap: () {
+                //TODO: Implement favorite toggle functionality
+              },
+              child: CircleAvatar(
+                backgroundColor: AppColors.white,
+                child: SvgPicture.asset(
+                  AppSvgs.inactiveFavoriteIcon,
+                  fit: BoxFit.scaleDown,
+                ),
+              ),
+            ).allPadding(8),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -63,6 +81,8 @@ class _ImageCarouselState extends State<ImageCarousel> {
                 _indicatorWidget(i == currentIndex).horizontalPadding(2),
             ],
           ).verticalPadding(6),
+
+
         ],
       ),
     );
