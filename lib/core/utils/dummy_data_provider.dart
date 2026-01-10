@@ -28,11 +28,11 @@ abstract class DummyDataProvider {
           price: 2999,
           priceAfterDiscount: 2699,
           imageCover:
-              'https://ecommerce.routemisr.com/Route-Academy-products/1680399913757-cover.jpeg',
+              'https://ecommerce.routemisr.com/Route-Academy-products_list/1680399913757-cover.jpeg',
           images: [
-            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913850-1.jpeg',
-            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913851-4.jpeg',
-            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913850-2.jpeg',
+            'https://ecommerce.routemisr.com/Route-Academy-products_list/1680399913850-1.jpeg',
+            'https://ecommerce.routemisr.com/Route-Academy-products_list/1680399913851-4.jpeg',
+            'https://ecommerce.routemisr.com/Route-Academy-products_list/1680399913850-2.jpeg',
           ],
 
           ratingsAverage: 2.8 + (i % 5) * 0.1,

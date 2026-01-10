@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_e_commerce_v2/core/di/di.dart';
+import 'package:route_e_commerce_v2/core/routing/routes.dart';
 import 'package:route_e_commerce_v2/core/theme/app_colors.dart';
 import 'package:route_e_commerce_v2/core/utils/context_func.dart';
 import 'package:route_e_commerce_v2/core/utils/resources.dart';
 import 'package:route_e_commerce_v2/core/widgets/custom_product_card.dart';
 import 'package:route_e_commerce_v2/features/commerce/domain/entities/category.dart';
 import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products/cubit/product_list_contract.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products/cubit/product_list_cubit.dart';
+import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products_list/cubit/product_list_contract.dart';
+import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products_list/cubit/product_list_cubit.dart';
 import 'package:route_e_commerce_v2/features/order/presentation/cubit/cart_cubit.dart';
 import 'package:route_e_commerce_v2/features/order/presentation/cubit/contract.dart';
 import 'package:shimmer/shimmer.dart';
@@ -29,6 +30,14 @@ class _ProductListViewState extends State<ProductListView> {
   @override
   void initState() {
     super.initState();
+    cubit.navigation.listen((navigationState){
+      switch (navigationState) {
+
+        case NavigateToProductDetailsScreen():{
+          Navigator.pushNamed(context, Routes.productDetailsRoute,arguments: navigationState.product);
+        }
+      }
+    });
     cubit.doActions(LoadPageableProductsList(widget.category.id ?? ""));
     cartCubit.doActions(LoadUserCartList());
   }
@@ -77,24 +86,21 @@ class _ProductListViewState extends State<ProductListView> {
                           ),
                           child: CustomProductCard(product: Product(
                             id: '1',
-                            title: 'Softride Enzo NXT',
-                            description: 'Sole Material: Rubber, Colour: RED, Department: Men',
-                            price: 2999,
+                            title: '',
+                            description: '',
+                            price: 0,
                             priceAfterDiscount: 2699,
-                            imageCover:
-                            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913757-cover.jpeg',
-                            images: [
-                              'https://ecommerce.routemisr.com/Route-Academy-products/1680399913850-1.jpeg',
-                              'https://ecommerce.routemisr.com/Route-Academy-products/1680399913851-4.jpeg',
-                              'https://ecommerce.routemisr.com/Route-Academy-products/1680399913850-2.jpeg',
-                            ],
-                            ratingsAverage: 2.8 + (1 % 5) * 0.1,
-                            ratingsQuantity: 20 + 1,
-                            quantity: 100 + 1,
-                          )),
+                            imageCover: '',
+                            images: [],
+                            ratingsAverage: 0,
+                            ratingsQuantity: 0,
+                            quantity: 0,
+                          ),onTap: (product){},),
                         );
                       }
-                      return CustomProductCard(product: products[index]);
+                      return CustomProductCard(product: products[index],onTap: (product){
+                        cubit.doActions(GoToProductDetails(product));
+                      },);
                     },
                     itemCount: state.currentPage > state.numOfPage
                         ? state.products.data!.length

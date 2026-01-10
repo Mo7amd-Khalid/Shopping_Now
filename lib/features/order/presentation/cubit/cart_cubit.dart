@@ -26,7 +26,9 @@ class CartCubit extends BaseCubit<CartState, CartActions, void> {
           _addProductToCartList(action.productId);
         }
       case UpdateProduct():
-        {}
+        {
+          _updateCountOfProduct(action.productId, action.count);
+        }
       case RemoveProductFromCartList():
         {
           _removeProductFromCartList(action.productId);
@@ -59,7 +61,7 @@ class CartCubit extends BaseCubit<CartState, CartActions, void> {
 
   Future<void> _addProductToCartList(String productId) async {
     (state.cart.data?.products ?? []).add(
-      ProductInCartEntity(productId, 0, 0),
+      ProductInCartEntity(productId, 1, 0),
     );
     emit(state.copyWith(cart: Resources.success(data: state.cart.data)));
 
@@ -110,6 +112,21 @@ class CartCubit extends BaseCubit<CartState, CartActions, void> {
             ),
           ),
         );
+    }
+  }
+
+  Future<void> _updateCountOfProduct(String productId, String count)async{
+    emit(state.copyWith(isLoading: true));
+
+    var response = await _useCase.updateUserCartList(productId, count);
+    switch (response) {
+
+      case Success<CartEntity>():{
+        emit(state.copyWith(cart: Resources.success(data: response.data), isLoading: false));
+      }
+      case Failure<CartEntity>():{
+        emit(state.copyWith(cart: Resources.failure(exception: response.exception, message: response.errorMessage)));
+      }
     }
   }
 }

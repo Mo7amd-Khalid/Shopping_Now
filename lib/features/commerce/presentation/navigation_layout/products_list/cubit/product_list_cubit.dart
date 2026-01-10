@@ -2,16 +2,17 @@ import 'package:injectable/injectable.dart';
 import 'package:route_e_commerce_v2/core/base/base_cubit.dart';
 import 'package:route_e_commerce_v2/core/utils/resources.dart';
 import 'package:route_e_commerce_v2/features/commerce/domain/entities/pageable_products.dart';
+import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
 import 'package:route_e_commerce_v2/features/commerce/domain/use_case/commerce_use_case.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products/cubit/product_list_contract.dart';
+import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products_list/cubit/product_list_contract.dart';
 import 'package:route_e_commerce_v2/network/results.dart';
 
 @injectable
 class ProductListCubit
-    extends BaseCubit<ProductListState, ProductListActions, void> {
+    extends BaseCubit<ProductListState, ProductListActions, ProductListNavigation> {
   ProductListCubit(this._useCase) : super(ProductListState());
 
-  CommerceUseCase _useCase;
+  final CommerceUseCase _useCase;
 
   @override
   Future<void> doActions(ProductListActions action) async {
@@ -20,6 +21,9 @@ class ProductListCubit
         {
           _loadPageableProductsList(action.categoryId);
         }
+      case GoToProductDetails():{
+        _navigateToProductDetails(action.product);
+      }
     }
   }
 
@@ -57,5 +61,10 @@ class ProductListCubit
           );
         }
     }
+  }
+
+  void _navigateToProductDetails(Product product)
+  {
+    emitNavigation(NavigateToProductDetailsScreen(product));
   }
 }

@@ -5,8 +5,10 @@ import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/v
 import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/view/send_email_view.dart';
 import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/view/successful_view.dart';
 import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/view/verification_view.dart';
+import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
 import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/navigation_view.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products/product_list_view.dart';
+import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products_list/product_list_view.dart';
+import 'package:route_e_commerce_v2/features/commerce/presentation/product_details/product_details.dart';
 import '../../features/auth/presentation/login/view/login_view.dart';
 import '../../features/auth/presentation/register/register_view.dart';
 import 'package:route_e_commerce_v2/features/commerce/domain/entities/category.dart';
@@ -61,6 +63,11 @@ abstract class AppRouter {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => ProductListView(category: settings.arguments as Category),
+        );
+      case Routes.productDetailsRoute:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => ProductDetails(product: settings.arguments as Product),
         );
       default:
         return MaterialPageRoute(

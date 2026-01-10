@@ -46,8 +46,8 @@ import '../../features/commerce/data/repo_impl/commerce_repo_impl.dart'
 import '../../features/commerce/domain/repository/commerce_repo.dart' as _i48;
 import '../../features/commerce/domain/use_case/commerce_use_case.dart'
     as _i669;
-import '../../features/commerce/presentation/navigation_layout/products/cubit/product_list_cubit.dart'
-    as _i2;
+
+import '../../features/commerce/presentation/navigation_layout/products_list/cubit/product_list_cubit.dart' as _i268;
 import '../../features/commerce/presentation/navigation_layout/tabs/categories/cubit/cubit.dart'
     as _i86;
 import '../../features/commerce/presentation/navigation_layout/tabs/home/cubit/cubit.dart'
@@ -112,8 +112,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i137.CartRepository>(
       () => _i143.CartRepoImpl(gh<_i572.CartRemoteDataSource>()),
     );
-    gh.factory<_i2.ProductListCubit>(
-      () => _i2.ProductListCubit(gh<_i669.CommerceUseCase>()),
+    gh.factory<_i268.ProductListCubit>(
+      () => _i268.ProductListCubit(gh<_i669.CommerceUseCase>()),
     );
     gh.factory<_i86.CategoryTabCubit>(
       () => _i86.CategoryTabCubit(gh<_i669.CommerceUseCase>()),

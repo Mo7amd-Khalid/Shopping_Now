@@ -8,4 +8,5 @@ abstract class Routes {
   static const String successfulResetPasswordRoute = '/successfulResetPassword';
 
   static const String productListViewRoute = '/productListView';
+  static const String productDetailsRoute = '/productDetailsView';
 }

@@ -20,7 +20,8 @@ class ProductsList extends StatelessWidget {
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.only(right: 16),
-              child: CustomProductCard(product: products[index]),
+              child: CustomProductCard(
+                product: products[index], onTap: (product){},),
             );
           },
         ),

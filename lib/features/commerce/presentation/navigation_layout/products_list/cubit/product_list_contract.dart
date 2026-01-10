@@ -32,3 +32,17 @@ class LoadPageableProductsList extends ProductListActions{
 
   LoadPageableProductsList(this.categoryId);
 }
+
+class GoToProductDetails extends ProductListActions{
+  Product product;
+
+  GoToProductDetails(this.product);
+}
+
+
+sealed class ProductListNavigation{}
+
+class NavigateToProductDetailsScreen extends ProductListNavigation{
+  Product product;
+  NavigateToProductDetailsScreen(this.product);
+}
