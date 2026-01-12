@@ -13,7 +13,7 @@ abstract class ApiConstants {
   static const String updateLoggedPassword = "/api/v1/users/updateMe";
   static const String addProductToWishlist = "/api/v1/wishlist";
   static const String removeProductFromWishList = "/api/v1/wishlist/{id}";
-  static const String getWishList = "/api/v1/wishlist";
+  static const String wishList = "/api/v1/wishlist";
   static const String cart = "/api/v1/cart";
   static const String updateCartProductQuantity = "/api/v1/cart/{id}";
   static const String removeProductFromCart = "/api/v1/cart/{id}";

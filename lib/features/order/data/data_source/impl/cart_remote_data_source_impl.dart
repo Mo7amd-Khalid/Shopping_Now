@@ -32,7 +32,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   @override
   Future<Results<CartResponseDto>> removeUserCartList(String productId) async {
     return safeCall(() async {
-      var response = await _apiClient.removeProductToCart(productId);
+      var response = await _apiClient.removeProductFromCart(productId);
       return Success(data: response);
     });
   }

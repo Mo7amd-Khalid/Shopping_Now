@@ -10,6 +10,8 @@ import 'package:route_e_commerce_v2/features/auth/data/models/verify_code_reques
 import 'package:route_e_commerce_v2/features/commerce/data/models/category_models/categories_response_dto.dart';
 import 'package:route_e_commerce_v2/features/commerce/data/models/product_list_model/pageable_product_response_dto.dart';
 import 'package:route_e_commerce_v2/features/order/data/models/cart_response_dto.dart';
+import 'package:route_e_commerce_v2/features/wish_list/data/models/add_or_remove_product.dart';
+import 'package:route_e_commerce_v2/features/wish_list/data/models/wish_list_response_dto.dart';
 import '../core/constants/api_constants.dart';
 import '../features/auth/data/models/register_request_dto.dart';
 
@@ -57,5 +59,14 @@ abstract class ApiClient {
   Future<CartResponseDto> updateProductToCart(@Path("id") String productId, @Body() Map<String, String> count);
 
   @DELETE("/api/v1/cart/{id}")
-  Future<CartResponseDto> removeProductToCart(@Path("id") String productId);
+  Future<CartResponseDto> removeProductFromCart(@Path("id") String productId);
+
+  @POST(ApiConstants.wishList)
+  Future<AddOrRemoveProduct> addProductToWishList(@Body() Map<String, String> productId);
+
+  @DELETE("${ApiConstants.wishList}/{id}")
+  Future<AddOrRemoveProduct> removeProductFromWishList(@Path("id") String productId);
+
+  @GET(ApiConstants.wishList)
+  Future<WishListResponseDto> getWishList();
 }
