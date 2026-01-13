@@ -9,4 +9,5 @@ abstract class Routes {
 
   static const String productListViewRoute = '/productListView';
   static const String productDetailsRoute = '/productDetailsView';
+  static const String cartProductsRoute = '/cartProductsView';
 }

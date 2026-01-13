@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:route_e_commerce_v2/core/base/base_cubit.dart';
 import 'package:route_e_commerce_v2/core/utils/resources.dart';
+import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
 import 'package:route_e_commerce_v2/features/order/domain/entities/cart_entity.dart';
 import 'package:route_e_commerce_v2/features/order/domain/entities/product_in_cart_entity.dart';
 import 'package:route_e_commerce_v2/features/order/domain/use_case/cart_use_case.dart';
@@ -61,7 +62,7 @@ class CartCubit extends BaseCubit<CartState, CartActions, void> {
 
   Future<void> _addProductToCartList(String productId) async {
     (state.cart.data?.products ?? []).add(
-      ProductInCartEntity(productId, 1, 0),
+      ProductInCartEntity(productId, 1, 0, Product()),
     );
     emit(state.copyWith(cart: Resources.success(data: state.cart.data)));
 
