@@ -12,6 +12,8 @@ import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_la
 import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products_list/cubit/product_list_cubit.dart';
 import 'package:route_e_commerce_v2/features/order/presentation/cubit/cart_cubit.dart';
 import 'package:route_e_commerce_v2/features/order/presentation/cubit/contract.dart';
+import 'package:route_e_commerce_v2/features/wish_list/presentation/cubit/wish_list_contract.dart';
+import 'package:route_e_commerce_v2/features/wish_list/presentation/cubit/wish_list_cubit.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ProductListView extends StatefulWidget {
@@ -26,6 +28,8 @@ class ProductListView extends StatefulWidget {
 class _ProductListViewState extends State<ProductListView> {
   ProductListCubit cubit = getIt();
   CartCubit cartCubit = getIt();
+  WishListCubit wishCubit = getIt();
+
 
   @override
   void initState() {
@@ -40,12 +44,17 @@ class _ProductListViewState extends State<ProductListView> {
     });
     cubit.doActions(LoadPageableProductsList(widget.category.id ?? ""));
     cartCubit.doActions(LoadUserCartList());
+    wishCubit.doActions(GetWishListProducts());
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: cubit,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider.value(value: cubit),
+        BlocProvider.value(value: cartCubit),
+        BlocProvider.value(value: wishCubit),
+      ],
       child: Scaffold(
         appBar: AppBar(
           scrolledUnderElevation: 0.0,
@@ -95,12 +104,15 @@ class _ProductListViewState extends State<ProductListView> {
                             ratingsAverage: 0,
                             ratingsQuantity: 0,
                             quantity: 0,
-                          ),onTap: (product){},),
+                          ),onTap: (product){},cartCubit: cartCubit, wishListCubit: wishCubit,),
                         );
                       }
                       return CustomProductCard(product: products[index],onTap: (product){
                         cubit.doActions(GoToProductDetails(product));
-                      },);
+                      },
+                        cartCubit: cartCubit,
+                          wishListCubit: wishCubit,
+                      );
                     },
                     itemCount: state.currentPage > state.numOfPage
                         ? state.products.data!.length

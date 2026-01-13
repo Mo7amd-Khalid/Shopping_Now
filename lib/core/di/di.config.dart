@@ -46,8 +46,8 @@ import '../../features/commerce/data/repo_impl/commerce_repo_impl.dart'
 import '../../features/commerce/domain/repository/commerce_repo.dart' as _i48;
 import '../../features/commerce/domain/use_case/commerce_use_case.dart'
     as _i669;
-
-import '../../features/commerce/presentation/navigation_layout/products_list/cubit/product_list_cubit.dart' as _i268;
+import '../../features/commerce/presentation/navigation_layout/products_list/cubit/product_list_cubit.dart'
+    as _i268;
 import '../../features/commerce/presentation/navigation_layout/tabs/categories/cubit/cubit.dart'
     as _i86;
 import '../../features/commerce/presentation/navigation_layout/tabs/home/cubit/cubit.dart'
@@ -60,6 +60,16 @@ import '../../features/order/data/repo_impl/cart_repo_impl.dart' as _i143;
 import '../../features/order/domain/repository/cart_repository.dart' as _i137;
 import '../../features/order/domain/use_case/cart_use_case.dart' as _i257;
 import '../../features/order/presentation/cubit/cart_cubit.dart' as _i1024;
+import '../../features/wish_list/data/data_source/contract/wish_list_remote_data_source.dart'
+    as _i571;
+import '../../features/wish_list/data/data_source/impl/wish_list_remote_data_source_impl.dart'
+    as _i260;
+import '../../features/wish_list/data/repo_impl/wish_list_repo_impl.dart'
+    as _i487;
+import '../../features/wish_list/domain/repository/wish_list_repo.dart'
+    as _i316;
+import '../../features/wish_list/presentation/cubit/wish_list_cubit.dart'
+    as _i368;
 import '../../network/api_client.dart' as _i972;
 import 'provide_dio.dart' as _i833;
 import 'provide_shared_preferences.dart' as _i18;
@@ -88,6 +98,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i572.CartRemoteDataSource>(
       () => _i674.CartRemoteDataSourceImpl(gh<_i972.ApiClient>()),
     );
+    gh.factory<_i571.WishListRemoteDataSource>(
+      () => _i260.WishListRemoteDataSourceImpl(gh<_i972.ApiClient>()),
+    );
     gh.factory<_i445.GetProductRemote>(
       () => _i932.GetProductRemoteImpl(gh<_i972.ApiClient>()),
     );
@@ -109,6 +122,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i669.CommerceUseCase>(
       () => _i669.CommerceUseCase(gh<_i48.CommerceRepo>()),
     );
+    gh.factory<_i316.WishListRepo>(
+      () => _i487.WishListRepoImpl(gh<_i571.WishListRemoteDataSource>()),
+    );
     gh.factory<_i137.CartRepository>(
       () => _i143.CartRepoImpl(gh<_i572.CartRemoteDataSource>()),
     );
@@ -126,6 +142,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i90.ForgetPasswordUseCase>(
       () => _i90.ForgetPasswordUseCase(gh<_i976.AuthRepo>()),
+    );
+    gh.singleton<_i368.WishListCubit>(
+      () => _i368.WishListCubit(gh<_i316.WishListRepo>()),
     );
     gh.factory<_i257.CartUseCase>(
       () => _i257.CartUseCase(gh<_i137.CartRepository>()),

@@ -31,7 +31,7 @@ abstract class CommerceMapper {
     var currentPage = (response.metadata!.currentPage ?? 1).toInt();
     var numOfPages = (response.metadata!.numberOfPages ?? 1).toInt();
     var products = (response.data ?? [])
-        .map((productDto) => _convertProductDtoToProduct(productDto))
+        .map((productDto) => convertProductDtoToProduct(productDto))
         .toList();
     return PageableProducts(
       currentPage: currentPage,
@@ -40,7 +40,7 @@ abstract class CommerceMapper {
     );
   }
 
-  static Product _convertProductDtoToProduct(ProductDto product) {
+  static Product convertProductDtoToProduct(ProductDto product) {
     return Product(
       id: product.id,
       images: product.images,

@@ -2,6 +2,8 @@ import 'package:injectable/injectable.dart';
 import 'package:route_e_commerce_v2/core/base/base_cubit.dart';
 import 'package:route_e_commerce_v2/core/utils/resources.dart';
 import 'package:route_e_commerce_v2/features/commerce/domain/entities/category.dart';
+import 'package:route_e_commerce_v2/features/commerce/domain/entities/pageable_products.dart';
+import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
 import 'package:route_e_commerce_v2/features/commerce/domain/use_case/commerce_use_case.dart';
 import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/tabs/home/cubit/contract.dart';
 import 'package:route_e_commerce_v2/network/results.dart';
@@ -25,29 +27,49 @@ class HomeTabCubit extends BaseCubit<HomeTabState, HomeTabActions, HomeTabNaviga
       case OnCategoryItemClick():{
         _onCategoryItemClick(action.category);
       }
+      case GetRandomProducts():{
+        _getRandomProducts(action.categoryId);
+      }
+      case OnProductItemClick():{
+        _onProductItemClick(action.product);
+
+      }
     }
   }
 
 
 
   Future<void> _getCategories()async{
-    emit(state.copyWith(resource: const Resources.loading()));
+    emit(state.copyWith(categories: const Resources.loading()));
     var response = await useCase.getCategories();
     switch (response) {
-
       case Success<List<Category>>():{
-        emit(state.copyWith(resource: Resources.success(data: response.data)));
+        emit(state.copyWith(categories: Resources.success(data: response.data)));
       }
       case Failure<List<Category>>():{
-        emit(state.copyWith(resource: Resources.failure(exception: response.exception, message: response.errorMessage)));
+        emit(state.copyWith(categories: Resources.failure(exception: response.exception, message: response.errorMessage)));
       }
     }
   }
 
+  Future<void> _getRandomProducts(String categoryId)async{
+    emit(state.copyWith(randomProducts: const Resources.loading()));
+    var response = await useCase.getProducts(categoryId, 1);
+   switch (response) {
+
+     case Success<PageableProducts>():
+       emit(state.copyWith(randomProducts: Resources.success(data: response.data?.products)));
+     case Failure<PageableProducts>():
+       emit(state.copyWith(randomProducts: Resources.failure(exception: response.exception, message: response.errorMessage)));
+   }
+  }
 
   void _onCategoryItemClick(Category category)
   {
     emitNavigation(NavigateToProductListScreen(category));
   }
 
+  void _onProductItemClick(Product product){
+    emitNavigation(NavigateToProductDetailsScreen(product));
+  }
 }
