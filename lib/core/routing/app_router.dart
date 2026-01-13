@@ -6,6 +6,7 @@ import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/v
 import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/view/successful_view.dart';
 import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/view/verification_view.dart';
 import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
+import 'package:route_e_commerce_v2/features/commerce/presentation/cart_products/cart_products.dart';
 import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/navigation_view.dart';
 import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products_list/product_list_view.dart';
 import 'package:route_e_commerce_v2/features/commerce/presentation/product_details/product_details.dart';
@@ -68,6 +69,11 @@ abstract class AppRouter {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => ProductDetails(product: settings.arguments as Product),
+        );
+      case Routes.cartProductsRoute:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const CartProducts(),
         );
       default:
         return MaterialPageRoute(

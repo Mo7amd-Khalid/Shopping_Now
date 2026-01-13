@@ -1,3 +1,4 @@
+import 'package:route_e_commerce_v2/features/commerce/domain/mapper/commerce_mapper.dart';
 import 'package:route_e_commerce_v2/features/order/data/models/cart_response_dto.dart';
 import 'package:route_e_commerce_v2/features/order/domain/entities/cart_entity.dart';
 import 'package:route_e_commerce_v2/features/order/domain/entities/product_in_cart_entity.dart';
@@ -27,6 +28,7 @@ abstract class CartMapper {
       response.product?.id ?? response.productAddedId ?? "",
       (response.count ?? 0).toInt(),
       response.price ?? 0,
+      CommerceMapper.convertProductDtoToProduct(response.product!),
     );
   }
 }
