@@ -17,4 +17,5 @@ abstract class ApiConstants {
   static const String cart = "/api/v1/cart";
   static const String updateCartProductQuantity = "/api/v1/cart/{id}";
   static const String removeProductFromCart = "/api/v1/cart/{id}";
+  static const String verifyToken = "/api/v1/auth/verifyToken";
 }
