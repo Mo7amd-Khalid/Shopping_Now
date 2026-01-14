@@ -1,5 +1,5 @@
-import 'package:route_e_commerce_v2/core/utils/resources.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/forget_password_response.dart';
+import 'package:E_Commerce/features/auth/data/models/forget_password_response.dart';
+import 'package:E_Commerce/core/utils/resources.dart';
 
 class ForgetPasswordState {
   Resources<ForgetPasswordResponse> sendEmailToCheck;

@@ -1,10 +1,10 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/features/order/data/data_source/contract/cart_remote_data_source.dart';
-import 'package:route_e_commerce_v2/features/order/data/mapper/cart_mapper.dart';
-import 'package:route_e_commerce_v2/features/order/data/models/cart_response_dto.dart';
-import 'package:route_e_commerce_v2/features/order/domain/entities/cart_entity.dart';
-import 'package:route_e_commerce_v2/features/order/domain/repository/cart_repository.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
+import 'package:E_Commerce/features/order/data/data_source/contract/cart_remote_data_source.dart';
+import 'package:E_Commerce/features/order/data/mapper/cart_mapper.dart';
+import 'package:E_Commerce/features/order/data/models/cart_response_dto.dart';
+import 'package:E_Commerce/features/order/domain/entities/cart_entity.dart';
+import 'package:E_Commerce/features/order/domain/repository/cart_repository.dart';
+import 'package:E_Commerce/network/results.dart';
 
 
 @Injectable(as: CartRepository)

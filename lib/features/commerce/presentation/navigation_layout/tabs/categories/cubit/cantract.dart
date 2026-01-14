@@ -1,5 +1,5 @@
-import 'package:route_e_commerce_v2/core/utils/resources.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/category.dart';
+import 'package:E_Commerce/core/utils/resources.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/category.dart';
 
 class CategoryTabState {
   Resources<List<Category>> categories;

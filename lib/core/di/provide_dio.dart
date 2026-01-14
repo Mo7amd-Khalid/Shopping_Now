@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:route_e_commerce_v2/core/constants/app_constants.dart';
-import 'package:route_e_commerce_v2/core/di/di.dart';
+import 'package:E_Commerce/core/constants/app_constants.dart';
+import 'package:E_Commerce/core/di/di.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../constants/api_constants.dart';
 

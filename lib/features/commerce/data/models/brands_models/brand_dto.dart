@@ -1,5 +1,5 @@
 
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/brand.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/brand.dart';
 
 class BrandDto {
   String? id;

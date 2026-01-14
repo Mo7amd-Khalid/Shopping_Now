@@ -1,11 +1,11 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/core/base/base_cubit.dart';
-import 'package:route_e_commerce_v2/core/utils/resources.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
-import 'package:route_e_commerce_v2/features/wish_list/data/models/add_or_remove_product.dart';
-import 'package:route_e_commerce_v2/features/wish_list/domain/repository/wish_list_repo.dart';
-import 'package:route_e_commerce_v2/features/wish_list/presentation/cubit/wish_list_contract.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
+import 'package:E_Commerce/core/base/base_cubit.dart';
+import 'package:E_Commerce/core/utils/resources.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/wish_list/data/models/add_or_remove_product.dart';
+import 'package:E_Commerce/features/wish_list/domain/repository/wish_list_repo.dart';
+import 'package:E_Commerce/features/wish_list/presentation/cubit/wish_list_contract.dart';
+import 'package:E_Commerce/network/results.dart';
 
 @singleton
 class WishListCubit extends BaseCubit<WishListState, WishListActions, void> {

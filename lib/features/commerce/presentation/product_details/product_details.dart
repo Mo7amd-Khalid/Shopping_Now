@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:route_e_commerce_v2/core/di/di.dart';
-import 'package:route_e_commerce_v2/core/theme/app_colors.dart';
-import 'package:route_e_commerce_v2/core/utils/context_func.dart';
-import 'package:route_e_commerce_v2/core/utils/padding.dart';
-import 'package:route_e_commerce_v2/core/utils/white_spaces.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/product_details/widgets/image_carousel.dart';
-import 'package:route_e_commerce_v2/features/order/domain/entities/product_in_cart_entity.dart';
-import 'package:route_e_commerce_v2/features/order/presentation/cubit/cart_cubit.dart';
-import 'package:route_e_commerce_v2/features/order/presentation/cubit/contract.dart';
+import 'package:E_Commerce/core/di/di.dart';
+import 'package:E_Commerce/core/theme/app_colors.dart';
+import 'package:E_Commerce/core/utils/context_func.dart';
+import 'package:E_Commerce/core/utils/padding.dart';
+import 'package:E_Commerce/core/utils/white_spaces.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/commerce/presentation/product_details/widgets/image_carousel.dart';
+import 'package:E_Commerce/features/order/domain/entities/product_in_cart_entity.dart';
+import 'package:E_Commerce/features/order/presentation/cubit/cart_cubit.dart';
+import 'package:E_Commerce/features/order/presentation/cubit/contract.dart';
 
 class ProductDetails extends StatefulWidget {
   final Product product;

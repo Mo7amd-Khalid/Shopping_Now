@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
-import 'package:route_e_commerce_v2/core/widgets/search_and_cart_widget.dart';
+import 'package:E_Commerce/core/utils/app_assets.dart';
+import 'package:E_Commerce/core/widgets/search_and_cart_widget.dart';
 
 class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
   final int tabIndex;

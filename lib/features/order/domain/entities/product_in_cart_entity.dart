@@ -1,4 +1,4 @@
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
 
 class ProductInCartEntity {
   String productId;

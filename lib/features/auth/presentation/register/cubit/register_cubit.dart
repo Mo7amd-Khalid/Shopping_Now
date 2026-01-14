@@ -1,8 +1,8 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/core/base/base_cubit.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
-import 'package:route_e_commerce_v2/features/auth/domain/use_case/auth_use_case.dart';
-import 'package:route_e_commerce_v2/features/auth/presentation/register/cubit/register_contract.dart';
+import 'package:E_Commerce/core/base/base_cubit.dart';
+import 'package:E_Commerce/network/results.dart';
+import 'package:E_Commerce/features/auth/domain/use_case/auth_use_case.dart';
+import 'package:E_Commerce/features/auth/presentation/register/cubit/register_contract.dart';
 import '../../../../../core/utils/resources.dart';
 
 @injectable

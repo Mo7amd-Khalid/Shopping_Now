@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/core/constants/app_constants.dart';
-import 'package:route_e_commerce_v2/core/di/di.dart';
-import 'package:route_e_commerce_v2/features/auth/data/data_source/contract/auth_local_data_source.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/forget_password_response.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/auth_response_dto.dart';
-import 'package:route_e_commerce_v2/features/auth/domain/repository/auth_repo.dart';
+import 'package:E_Commerce/core/constants/app_constants.dart';
+import 'package:E_Commerce/core/di/di.dart';
+import 'package:E_Commerce/features/auth/data/data_source/contract/auth_local_data_source.dart';
+import 'package:E_Commerce/features/auth/data/models/forget_password_response.dart';
+import 'package:E_Commerce/network/results.dart';
+import 'package:E_Commerce/features/auth/data/models/auth_response_dto.dart';
+import 'package:E_Commerce/features/auth/domain/repository/auth_repo.dart';
 import '../data_source/contract/auth_remote_data_source.dart';
 
 @Injectable(as: AuthRepo)

@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/forget_password_response.dart';
-import 'package:route_e_commerce_v2/features/auth/domain/repository/auth_repo.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
+import 'package:E_Commerce/features/auth/data/models/forget_password_response.dart';
+import 'package:E_Commerce/features/auth/domain/repository/auth_repo.dart';
+import 'package:E_Commerce/network/results.dart';
 
 @injectable
 class ForgetPasswordUseCase {

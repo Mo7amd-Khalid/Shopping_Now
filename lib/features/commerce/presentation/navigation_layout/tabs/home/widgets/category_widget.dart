@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/category.dart';
+import 'package:E_Commerce/core/utils/app_assets.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/category.dart';
 
 class CategoryWidget extends StatelessWidget {
   final Category category;

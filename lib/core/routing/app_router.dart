@@ -1,18 +1,18 @@
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
-import 'package:route_e_commerce_v2/core/routing/routes.dart';
-import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/view/reset_password_view.dart';
-import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/view/send_email_view.dart';
-import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/view/successful_view.dart';
-import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/view/verification_view.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/cart_products/cart_products.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/navigation_view.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products_list/product_list_view.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/product_details/product_details.dart';
+import 'package:E_Commerce/core/routing/routes.dart';
+import 'package:E_Commerce/features/auth/presentation/forget_password/view/reset_password_view.dart';
+import 'package:E_Commerce/features/auth/presentation/forget_password/view/send_email_view.dart';
+import 'package:E_Commerce/features/auth/presentation/forget_password/view/successful_view.dart';
+import 'package:E_Commerce/features/auth/presentation/forget_password/view/verification_view.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/commerce/presentation/cart_products/cart_products.dart';
+import 'package:E_Commerce/features/commerce/presentation/navigation_layout/navigation_view.dart';
+import 'package:E_Commerce/features/commerce/presentation/navigation_layout/products_list/product_list_view.dart';
+import 'package:E_Commerce/features/commerce/presentation/product_details/product_details.dart';
 import '../../features/auth/presentation/login/view/login_view.dart';
 import '../../features/auth/presentation/register/register_view.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/category.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/category.dart';
 
 
 abstract class AppRouter {

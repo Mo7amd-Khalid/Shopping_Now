@@ -1,10 +1,10 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/features/wish_list/data/data_source/contract/wish_list_remote_data_source.dart';
-import 'package:route_e_commerce_v2/features/wish_list/data/models/add_or_remove_product.dart';
-import 'package:route_e_commerce_v2/features/wish_list/data/models/wish_list_response_dto.dart';
-import 'package:route_e_commerce_v2/network/api_client.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
-import 'package:route_e_commerce_v2/network/safe_call.dart';
+import 'package:E_Commerce/features/wish_list/data/data_source/contract/wish_list_remote_data_source.dart';
+import 'package:E_Commerce/features/wish_list/data/models/add_or_remove_product.dart';
+import 'package:E_Commerce/features/wish_list/data/models/wish_list_response_dto.dart';
+import 'package:E_Commerce/network/api_client.dart';
+import 'package:E_Commerce/network/results.dart';
+import 'package:E_Commerce/network/safe_call.dart';
 
 @Injectable(as: WishListRemoteDataSource)
 class WishListRemoteDataSourceImpl implements WishListRemoteDataSource{
@@ -30,8 +30,7 @@ class WishListRemoteDataSourceImpl implements WishListRemoteDataSource{
       return Success(data: response);
     });
   }
-
-  @override
+ @override
   Future<Results<AddOrRemoveProduct>> removeProductFormWishList(String productId) async{
     return safeCall(()async{
       var response = await _apiClient.removeProductFromWishList(productId);

@@ -1,12 +1,13 @@
+import 'package:E_Commerce/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:route_e_commerce_v2/core/constants/app_constants.dart';
-import 'package:route_e_commerce_v2/core/l10n/translations/app_localizations.dart';
-import 'package:route_e_commerce_v2/core/routing/app_router.dart';
-import 'package:route_e_commerce_v2/core/routing/routes.dart';
-import 'package:route_e_commerce_v2/core/theme/app_theme.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'core/di/di.dart';
+import 'core/l10n/translations/app_localizations.dart';
+import 'core/routing/app_router.dart';
+import 'core/routing/routes.dart';
+import 'core/theme/app_theme.dart';
 
 void main() async{
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

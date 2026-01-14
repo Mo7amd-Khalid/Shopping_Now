@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:route_e_commerce_v2/core/theme/app_colors.dart';
+import 'package:E_Commerce/core/theme/app_colors.dart';
 
 class HomeBottomNavigationBarItem extends BottomNavigationBarItem {
   HomeBottomNavigationBarItem({

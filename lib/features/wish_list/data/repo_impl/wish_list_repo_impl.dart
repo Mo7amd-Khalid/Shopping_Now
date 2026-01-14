@@ -1,11 +1,11 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/mapper/commerce_mapper.dart';
-import 'package:route_e_commerce_v2/features/wish_list/data/data_source/contract/wish_list_remote_data_source.dart';
-import 'package:route_e_commerce_v2/features/wish_list/data/models/add_or_remove_product.dart';
-import 'package:route_e_commerce_v2/features/wish_list/data/models/wish_list_response_dto.dart';
-import 'package:route_e_commerce_v2/features/wish_list/domain/repository/wish_list_repo.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/commerce/domain/mapper/commerce_mapper.dart';
+import 'package:E_Commerce/features/wish_list/data/data_source/contract/wish_list_remote_data_source.dart';
+import 'package:E_Commerce/features/wish_list/data/models/add_or_remove_product.dart';
+import 'package:E_Commerce/features/wish_list/data/models/wish_list_response_dto.dart';
+import 'package:E_Commerce/features/wish_list/domain/repository/wish_list_repo.dart';
+import 'package:E_Commerce/network/results.dart';
 
 @Injectable(as: WishListRepo)
 class WishListRepoImpl implements WishListRepo {

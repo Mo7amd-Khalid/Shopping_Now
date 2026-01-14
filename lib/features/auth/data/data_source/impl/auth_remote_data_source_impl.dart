@@ -1,15 +1,15 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/forget_password_response.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/login_request_dto.dart';
-import 'package:route_e_commerce_v2/core/utils/app_exeptions.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/reset_password_request.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/send_email_to_check.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/verify_code_request.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
-import 'package:route_e_commerce_v2/network/safe_call.dart';
-import 'package:route_e_commerce_v2/features/auth/data/data_source/contract/auth_remote_data_source.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/auth_response_dto.dart';
-import 'package:route_e_commerce_v2/network/api_client.dart';
+import 'package:E_Commerce/features/auth/data/models/forget_password_response.dart';
+import 'package:E_Commerce/features/auth/data/models/login_request_dto.dart';
+import 'package:E_Commerce/core/utils/app_exeptions.dart';
+import 'package:E_Commerce/features/auth/data/models/reset_password_request.dart';
+import 'package:E_Commerce/features/auth/data/models/send_email_to_check.dart';
+import 'package:E_Commerce/features/auth/data/models/verify_code_request.dart';
+import 'package:E_Commerce/network/results.dart';
+import 'package:E_Commerce/network/safe_call.dart';
+import 'package:E_Commerce/features/auth/data/data_source/contract/auth_remote_data_source.dart';
+import 'package:E_Commerce/features/auth/data/models/auth_response_dto.dart';
+import 'package:E_Commerce/network/api_client.dart';
 
 import '../../models/register_request_dto.dart';
 

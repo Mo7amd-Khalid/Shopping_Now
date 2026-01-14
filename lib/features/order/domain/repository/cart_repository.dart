@@ -1,5 +1,5 @@
-import 'package:route_e_commerce_v2/features/order/domain/entities/cart_entity.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
+import 'package:E_Commerce/features/order/domain/entities/cart_entity.dart';
+import 'package:E_Commerce/network/results.dart';
 
 abstract interface class CartRepository {
 

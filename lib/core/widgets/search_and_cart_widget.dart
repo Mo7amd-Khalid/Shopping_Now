@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
-import 'package:route_e_commerce_v2/core/widgets/custom_search_field.dart';
+import 'package:E_Commerce/core/utils/app_assets.dart';
+import 'package:E_Commerce/core/widgets/custom_search_field.dart';
 
 import '../routing/routes.dart';
 

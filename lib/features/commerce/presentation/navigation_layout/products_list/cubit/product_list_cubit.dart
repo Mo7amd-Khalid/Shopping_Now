@@ -1,11 +1,11 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/core/base/base_cubit.dart';
-import 'package:route_e_commerce_v2/core/utils/resources.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/pageable_products.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/use_case/commerce_use_case.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/products_list/cubit/product_list_contract.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
+import 'package:E_Commerce/core/base/base_cubit.dart';
+import 'package:E_Commerce/core/utils/resources.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/pageable_products.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/commerce/domain/use_case/commerce_use_case.dart';
+import 'package:E_Commerce/features/commerce/presentation/navigation_layout/products_list/cubit/product_list_contract.dart';
+import 'package:E_Commerce/network/results.dart';
 
 @injectable
 class ProductListCubit

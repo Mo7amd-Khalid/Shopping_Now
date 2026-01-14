@@ -1,10 +1,10 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/core/utils/app_exeptions.dart';
-import 'package:route_e_commerce_v2/features/commerce/data/data_source/contract/get_product_remote.dart';
-import 'package:route_e_commerce_v2/features/commerce/data/models/product_list_model/pageable_product_response_dto.dart';
-import 'package:route_e_commerce_v2/network/api_client.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
-import 'package:route_e_commerce_v2/network/safe_call.dart';
+import 'package:E_Commerce/core/utils/app_exeptions.dart';
+import 'package:E_Commerce/features/commerce/data/data_source/contract/get_product_remote.dart';
+import 'package:E_Commerce/features/commerce/data/models/product_list_model/pageable_product_response_dto.dart';
+import 'package:E_Commerce/network/api_client.dart';
+import 'package:E_Commerce/network/results.dart';
+import 'package:E_Commerce/network/safe_call.dart';
 
 @Injectable(as: GetProductRemote)
 class GetProductRemoteImpl implements GetProductRemote{

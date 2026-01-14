@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:route_e_commerce_v2/core/l10n/translations/app_localizations.dart';
+import 'package:E_Commerce/core/l10n/translations/app_localizations.dart';
 
 class SectionTitle extends StatelessWidget {
   final String title;

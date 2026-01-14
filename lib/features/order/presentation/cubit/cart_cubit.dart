@@ -1,12 +1,12 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/core/base/base_cubit.dart';
-import 'package:route_e_commerce_v2/core/utils/resources.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
-import 'package:route_e_commerce_v2/features/order/domain/entities/cart_entity.dart';
-import 'package:route_e_commerce_v2/features/order/domain/entities/product_in_cart_entity.dart';
-import 'package:route_e_commerce_v2/features/order/domain/use_case/cart_use_case.dart';
-import 'package:route_e_commerce_v2/features/order/presentation/cubit/contract.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
+import 'package:E_Commerce/core/base/base_cubit.dart';
+import 'package:E_Commerce/core/utils/resources.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/order/domain/entities/cart_entity.dart';
+import 'package:E_Commerce/features/order/domain/entities/product_in_cart_entity.dart';
+import 'package:E_Commerce/features/order/domain/use_case/cart_use_case.dart';
+import 'package:E_Commerce/features/order/presentation/cubit/contract.dart';
+import 'package:E_Commerce/network/results.dart';
 
 @singleton
 class CartCubit extends BaseCubit<CartState, CartActions, void> {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:route_e_commerce_v2/core/theme/app_colors.dart';
-import 'package:route_e_commerce_v2/core/utils/dummy_data_provider.dart';
-import 'package:route_e_commerce_v2/core/utils/resources.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/category.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/tabs/home/cubit/contract.dart';
-import 'package:route_e_commerce_v2/features/commerce/presentation/navigation_layout/tabs/home/cubit/cubit.dart';
+import 'package:E_Commerce/core/theme/app_colors.dart';
+import 'package:E_Commerce/core/utils/dummy_data_provider.dart';
+import 'package:E_Commerce/core/utils/resources.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/category.dart';
+import 'package:E_Commerce/features/commerce/presentation/navigation_layout/tabs/home/cubit/contract.dart';
+import 'package:E_Commerce/features/commerce/presentation/navigation_layout/tabs/home/cubit/cubit.dart';
 import 'package:shimmer/shimmer.dart';
 import 'category_widget.dart';
 

@@ -2,14 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:route_e_commerce_v2/core/di/di.dart';
-import 'package:route_e_commerce_v2/core/theme/app_colors.dart';
-import 'package:route_e_commerce_v2/core/utils/app_assets.dart';
-import 'package:route_e_commerce_v2/core/utils/context_func.dart';
-import 'package:route_e_commerce_v2/core/utils/padding.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
-import 'package:route_e_commerce_v2/features/wish_list/presentation/cubit/wish_list_contract.dart';
-import 'package:route_e_commerce_v2/features/wish_list/presentation/cubit/wish_list_cubit.dart';
+import 'package:E_Commerce/core/di/di.dart';
+import 'package:E_Commerce/core/theme/app_colors.dart';
+import 'package:E_Commerce/core/utils/app_assets.dart';
+import 'package:E_Commerce/core/utils/context_func.dart';
+import 'package:E_Commerce/core/utils/padding.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/wish_list/presentation/cubit/wish_list_contract.dart';
+import 'package:E_Commerce/features/wish_list/presentation/cubit/wish_list_cubit.dart';
 
 class ImageCarousel extends StatefulWidget {
   const ImageCarousel({required this.product, super.key});

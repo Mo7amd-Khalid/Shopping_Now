@@ -1,5 +1,5 @@
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/category.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/category.dart';
 
 abstract class DummyDataProvider {
   static List<Category> generateCategories() {

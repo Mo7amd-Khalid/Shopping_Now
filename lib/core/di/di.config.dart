@@ -95,14 +95,20 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i619.GetCategoriesRemoteDatasource>(
       () => _i606.GetCategoriesRemoteDatasourceImpl(gh<_i972.ApiClient>()),
     );
-    gh.factory<_i572.CartRemoteDataSource>(
-      () => _i674.CartRemoteDataSourceImpl(gh<_i972.ApiClient>()),
+    gh.factory<_i445.GetProductRemote>(
+      () => _i932.GetProductRemoteImpl(gh<_i972.ApiClient>()),
     );
     gh.factory<_i571.WishListRemoteDataSource>(
       () => _i260.WishListRemoteDataSourceImpl(gh<_i972.ApiClient>()),
     );
-    gh.factory<_i445.GetProductRemote>(
-      () => _i932.GetProductRemoteImpl(gh<_i972.ApiClient>()),
+    gh.factory<_i572.CartRemoteDataSource>(
+      () => _i674.CartRemoteDataSourceImpl(gh<_i972.ApiClient>()),
+    );
+    gh.factory<_i137.CartRepository>(
+      () => _i143.CartRepoImpl(gh<_i572.CartRemoteDataSource>()),
+    );
+    gh.factory<_i78.AuthRemoteDataSource>(
+      () => _i1071.AuthRemoteDataSourceImpl(gh<_i972.ApiClient>()),
     );
     gh.factory<_i48.CommerceRepo>(
       () => _i195.CommerceRepoImpl(
@@ -110,32 +116,14 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i445.GetProductRemote>(),
       ),
     );
-    gh.factory<_i78.AuthRemoteDataSource>(
-      () => _i1071.AuthRemoteDataSourceImpl(gh<_i972.ApiClient>()),
-    );
     gh.factory<_i976.AuthRepo>(
       () => _i279.AuthRepoImpl(
         gh<_i78.AuthRemoteDataSource>(),
         gh<_i625.AuthLocalDataSource>(),
       ),
     );
-    gh.factory<_i669.CommerceUseCase>(
-      () => _i669.CommerceUseCase(gh<_i48.CommerceRepo>()),
-    );
     gh.factory<_i316.WishListRepo>(
       () => _i487.WishListRepoImpl(gh<_i571.WishListRemoteDataSource>()),
-    );
-    gh.factory<_i137.CartRepository>(
-      () => _i143.CartRepoImpl(gh<_i572.CartRemoteDataSource>()),
-    );
-    gh.factory<_i268.ProductListCubit>(
-      () => _i268.ProductListCubit(gh<_i669.CommerceUseCase>()),
-    );
-    gh.factory<_i86.CategoryTabCubit>(
-      () => _i86.CategoryTabCubit(gh<_i669.CommerceUseCase>()),
-    );
-    gh.factory<_i1054.HomeTabCubit>(
-      () => _i1054.HomeTabCubit(gh<_i669.CommerceUseCase>()),
     );
     gh.factory<_i701.AuthUseCase>(
       () => _i701.AuthUseCase(gh<_i976.AuthRepo>()),
@@ -143,21 +131,33 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i90.ForgetPasswordUseCase>(
       () => _i90.ForgetPasswordUseCase(gh<_i976.AuthRepo>()),
     );
-    gh.singleton<_i368.WishListCubit>(
-      () => _i368.WishListCubit(gh<_i316.WishListRepo>()),
-    );
     gh.factory<_i257.CartUseCase>(
       () => _i257.CartUseCase(gh<_i137.CartRepository>()),
     );
-    gh.factory<_i995.ForgetPasswordCubit>(
-      () => _i995.ForgetPasswordCubit(gh<_i90.ForgetPasswordUseCase>()),
+    gh.factory<_i669.CommerceUseCase>(
+      () => _i669.CommerceUseCase(gh<_i48.CommerceRepo>()),
     );
     gh.factory<_i14.LoginCubit>(() => _i14.LoginCubit(gh<_i701.AuthUseCase>()));
     gh.factory<_i404.RegisterCubit>(
       () => _i404.RegisterCubit(gh<_i701.AuthUseCase>()),
     );
+    gh.factory<_i268.ProductListCubit>(
+      () => _i268.ProductListCubit(gh<_i669.CommerceUseCase>()),
+    );
+    gh.singleton<_i368.WishListCubit>(
+      () => _i368.WishListCubit(gh<_i316.WishListRepo>()),
+    );
+    gh.factory<_i995.ForgetPasswordCubit>(
+      () => _i995.ForgetPasswordCubit(gh<_i90.ForgetPasswordUseCase>()),
+    );
     gh.singleton<_i1024.CartCubit>(
       () => _i1024.CartCubit(gh<_i257.CartUseCase>()),
+    );
+    gh.factory<_i86.CategoryTabCubit>(
+      () => _i86.CategoryTabCubit(gh<_i669.CommerceUseCase>()),
+    );
+    gh.factory<_i1054.HomeTabCubit>(
+      () => _i1054.HomeTabCubit(gh<_i669.CommerceUseCase>()),
     );
     return this;
   }

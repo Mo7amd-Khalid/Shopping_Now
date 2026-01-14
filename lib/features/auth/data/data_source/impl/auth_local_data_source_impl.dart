@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/features/auth/data/data_source/contract/auth_local_data_source.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
+import 'package:E_Commerce/features/auth/data/data_source/contract/auth_local_data_source.dart';
+import 'package:E_Commerce/network/results.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../../network/safe_call.dart';

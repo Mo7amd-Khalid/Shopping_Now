@@ -1,9 +1,9 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/features/order/data/data_source/contract/cart_remote_data_source.dart';
-import 'package:route_e_commerce_v2/features/order/data/models/cart_response_dto.dart';
-import 'package:route_e_commerce_v2/network/api_client.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
-import 'package:route_e_commerce_v2/network/safe_call.dart';
+import 'package:E_Commerce/features/order/data/data_source/contract/cart_remote_data_source.dart';
+import 'package:E_Commerce/features/order/data/models/cart_response_dto.dart';
+import 'package:E_Commerce/network/api_client.dart';
+import 'package:E_Commerce/network/results.dart';
+import 'package:E_Commerce/network/safe_call.dart';
 
 @Injectable(as: CartRemoteDataSource)
 class CartRemoteDataSourceImpl implements CartRemoteDataSource {

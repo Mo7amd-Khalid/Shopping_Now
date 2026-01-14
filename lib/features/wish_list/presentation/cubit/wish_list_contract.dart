@@ -1,5 +1,5 @@
-import 'package:route_e_commerce_v2/core/utils/resources.dart';
-import 'package:route_e_commerce_v2/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/core/utils/resources.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
 
 class WishListState {
   Resources<List<Product>> wishList;

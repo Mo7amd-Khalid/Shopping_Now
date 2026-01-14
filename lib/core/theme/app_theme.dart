@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:route_e_commerce_v2/core/theme/app_colors.dart';
+import 'package:E_Commerce/core/theme/app_colors.dart';
 
 class AppTheme {
   static ThemeData _getTheme({required ColorScheme colorScheme}) {

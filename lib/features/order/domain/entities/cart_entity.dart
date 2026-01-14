@@ -1,4 +1,4 @@
-import 'package:route_e_commerce_v2/features/order/domain/entities/product_in_cart_entity.dart';
+import 'package:E_Commerce/features/order/domain/entities/product_in_cart_entity.dart';
 
 class CartEntity {
   int numOfCartItems;
