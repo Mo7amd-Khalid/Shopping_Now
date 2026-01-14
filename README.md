@@ -35,7 +35,7 @@ A Flutter project that you can make all authentication process (Login - Register
 ## Authentication
 
 ### Login
-![Login](readme_pic/1.jpg, width:500)
+![Login](readme_pic/1.jpg, width:100)
 
 ### Register
 ![Register](readme_pic/2.jpg)
