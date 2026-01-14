@@ -1,4 +1,4 @@
-name: route_e_commerce_v2
+name: E_Commerce
 description: "A new Flutter project."
 publish_to: "none"
 version: 1.0.0+1
@@ -30,6 +30,7 @@ dependencies:
   json_annotation:
   cherry_toast: ^1.13.0
   shared_preferences:
+  shimmer: ^3.0.0
 
 
 dev_dependencies:

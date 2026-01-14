@@ -1,6 +1,7 @@
-import 'package:route_e_commerce_v2/features/auth/data/models/forget_password_response.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/auth_response_dto.dart';
+import 'package:E_Commerce/features/auth/data/models/forget_password_response.dart';
+import 'package:E_Commerce/features/auth/data/models/user_data_dto.dart';
+import 'package:E_Commerce/network/results.dart';
+import 'package:E_Commerce/features/auth/data/models/auth_response_dto.dart';
 
 abstract interface class AuthRemoteDataSource {
 
@@ -28,4 +29,6 @@ abstract interface class AuthRemoteDataSource {
     required String email,
     required String newPassword,
 });
+
+  Future<Results<UserDataDto>> getUserData();
 }

@@ -1,5 +1,5 @@
-import 'package:route_e_commerce_v2/features/navigation_layout/tabs/categories/domain/entities/category.dart';
-import 'package:route_e_commerce_v2/features/products/domain/entity/product.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/product.dart';
+import 'package:E_Commerce/features/commerce/domain/entities/category.dart';
 
 abstract class DummyDataProvider {
   static List<Category> generateCategories() {
@@ -28,18 +28,16 @@ abstract class DummyDataProvider {
           price: 2999,
           priceAfterDiscount: 2699,
           imageCover:
-              'https://ecommerce.routemisr.com/Route-Academy-products/1680399913757-cover.jpeg',
+              "https://ecommerce.routemisr.com/Route-Academy-products/1678305677165-cover.jpeg",
           images: [
-            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913850-1.jpeg',
-            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913851-4.jpeg',
-            'https://ecommerce.routemisr.com/Route-Academy-products/1680399913850-2.jpeg',
+            'https://ecommerce.routemisr.com/Route-Academy-products_list/1680399913850-1.jpeg',
+            'https://ecommerce.routemisr.com/Route-Academy-products_list/1680399913851-4.jpeg',
+            'https://ecommerce.routemisr.com/Route-Academy-products_list/1680399913850-2.jpeg',
           ],
-          categoryId: '6439d5b90049ad0b52b90048',
-          brandId: '64089d5c24b25627a253159f',
+
           ratingsAverage: 2.8 + (i % 5) * 0.1,
           ratingsQuantity: 20 + i,
           quantity: 100 + i,
-          availableColors: ['Red', 'Black', 'Blue'],
         ),
       );
     }

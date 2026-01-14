@@ -1,5 +1,5 @@
-import 'package:route_e_commerce_v2/core/utils/resources.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/auth_response_dto.dart';
+import 'package:E_Commerce/core/utils/resources.dart';
+import 'package:E_Commerce/features/auth/data/models/auth_response_dto.dart';
 
 class LoginState {
   Resources<AuthResponseDto> loginResources;

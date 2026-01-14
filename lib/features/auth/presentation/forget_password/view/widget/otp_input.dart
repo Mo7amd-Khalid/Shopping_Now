@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:route_e_commerce_v2/core/utils/context_func.dart';
+import 'package:E_Commerce/core/utils/context_func.dart';
 
 class OTPInput extends StatelessWidget {
   const OTPInput({required this.controller,this.autoFocus = false, super.key});

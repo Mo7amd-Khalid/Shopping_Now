@@ -1,12 +1,13 @@
+import 'package:E_Commerce/features/auth/data/models/user_data_dto.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/core/constants/app_constants.dart';
-import 'package:route_e_commerce_v2/core/di/di.dart';
-import 'package:route_e_commerce_v2/features/auth/data/data_source/contract/auth_local_data_source.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/forget_password_response.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/auth_response_dto.dart';
-import 'package:route_e_commerce_v2/features/auth/domain/repository/auth_repo.dart';
+import 'package:E_Commerce/core/constants/app_constants.dart';
+import 'package:E_Commerce/core/di/di.dart';
+import 'package:E_Commerce/features/auth/data/data_source/contract/auth_local_data_source.dart';
+import 'package:E_Commerce/features/auth/data/models/forget_password_response.dart';
+import 'package:E_Commerce/network/results.dart';
+import 'package:E_Commerce/features/auth/data/models/auth_response_dto.dart';
+import 'package:E_Commerce/features/auth/domain/repository/auth_repo.dart';
 import '../data_source/contract/auth_remote_data_source.dart';
 
 @Injectable(as: AuthRepo)
@@ -30,7 +31,7 @@ class AuthRepoImpl implements AuthRepo {
       rePassword: rePassword,
     );
     return switch (response) {
-      Success<AuthResponseDto>() => Success(response.data!.token),
+      Success<AuthResponseDto>() => Success(data: response.data!.token),
       Failure<AuthResponseDto>() => Failure(
         response.exception,
         response.errorMessage,
@@ -53,7 +54,7 @@ class AuthRepoImpl implements AuthRepo {
           authLocalDataSource.saveToken(response.data!.token!);
           getIt<Dio>().options.headers[AppConstants.token] =
               response.data!.token!;
-          return Success(response.data);
+          return Success(data: response.data);
         }
       case Failure<AuthResponseDto>():
         {
@@ -70,7 +71,7 @@ class AuthRepoImpl implements AuthRepo {
 
     switch (response) {
       case Success<ForgetPasswordResponse>():
-        return Success(response.data);
+        return Success(data: response.data);
       case Failure<ForgetPasswordResponse>():
         return Failure(response.exception, response.errorMessage);
     }
@@ -83,7 +84,7 @@ class AuthRepoImpl implements AuthRepo {
     var response = await authRemoteDataSource.verifySentCode(code: code);
 
     return switch (response) {
-      Success<ForgetPasswordResponse>() => Success(response.data),
+      Success<ForgetPasswordResponse>() => Success(data: response.data),
       Failure<ForgetPasswordResponse>() => Failure(
         response.exception,
         response.errorMessage,
@@ -102,12 +103,29 @@ class AuthRepoImpl implements AuthRepo {
     );
 
     return switch (response) {
-      Success<ForgetPasswordResponse>() => Success(response.data),
+      Success<ForgetPasswordResponse>() => Success(data: response.data),
 
       Failure<ForgetPasswordResponse>() => Failure(
         response.exception,
         response.errorMessage,
       ),
     };
+  }
+
+  @override
+  Future<void> logout() async{
+    await authLocalDataSource.removeToken();
+  }
+
+  @override
+  Future<Results<UserDataDto>> getUserData() async{
+    var response = await authRemoteDataSource.getUserData();
+    switch (response) {
+
+      case Success<UserDataDto>():
+        return Success(data: response.data);
+      case Failure<UserDataDto>():
+        return Failure(response.exception, response.errorMessage);
+    }
   }
 }

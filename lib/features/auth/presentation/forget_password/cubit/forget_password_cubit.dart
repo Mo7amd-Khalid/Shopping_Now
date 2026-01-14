@@ -1,11 +1,10 @@
 import 'package:injectable/injectable.dart';
-import 'package:route_e_commerce_v2/core/base/base_cubit.dart';
-import 'package:route_e_commerce_v2/core/utils/resources.dart';
-import 'package:route_e_commerce_v2/features/auth/data/models/forget_password_response.dart';
-import 'package:route_e_commerce_v2/features/auth/domain/use_case/forget_password_use_case.dart';
-import 'package:route_e_commerce_v2/features/auth/presentation/forget_password/cubit/forget_password_contract.dart';
-import 'package:route_e_commerce_v2/features/auth/presentation/login/view/cubit/login_state.dart';
-import 'package:route_e_commerce_v2/network/results.dart';
+import 'package:E_Commerce/core/base/base_cubit.dart';
+import 'package:E_Commerce/core/utils/resources.dart';
+import 'package:E_Commerce/features/auth/data/models/forget_password_response.dart';
+import 'package:E_Commerce/features/auth/domain/use_case/forget_password_use_case.dart';
+import 'package:E_Commerce/features/auth/presentation/forget_password/cubit/forget_password_contract.dart';
+import 'package:E_Commerce/network/results.dart';
 
 
 @injectable
