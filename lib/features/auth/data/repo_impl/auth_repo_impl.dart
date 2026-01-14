@@ -1,3 +1,4 @@
+import 'package:E_Commerce/features/auth/data/models/user_data_dto.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:E_Commerce/core/constants/app_constants.dart';
@@ -109,5 +110,22 @@ class AuthRepoImpl implements AuthRepo {
         response.errorMessage,
       ),
     };
+  }
+
+  @override
+  Future<void> logout() async{
+    await authLocalDataSource.removeToken();
+  }
+
+  @override
+  Future<Results<UserDataDto>> getUserData() async{
+    var response = await authRemoteDataSource.getUserData();
+    switch (response) {
+
+      case Success<UserDataDto>():
+        return Success(data: response.data);
+      case Failure<UserDataDto>():
+        return Failure(response.exception, response.errorMessage);
+    }
   }
 }

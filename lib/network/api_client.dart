@@ -1,3 +1,4 @@
+import 'package:E_Commerce/features/auth/data/models/user_data_dto.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
@@ -69,4 +70,7 @@ abstract class ApiClient {
 
   @GET(ApiConstants.wishList)
   Future<WishListResponseDto> getWishList();
+
+  @GET(ApiConstants.verifyToken)
+  Future<UserDataDto> getUserData();
 }

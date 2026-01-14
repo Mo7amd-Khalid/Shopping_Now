@@ -39,6 +39,7 @@ class LoginCubit extends BaseCubit<LoginState, LoginActions, LoginNavigation>{
   void _navigatorToForgetPasswordScreen(){
     emitNavigation(GoToForgetPasswordScreen());
   }
+
   Future<void> _login(String email, String password) async{
     emit(state.copyWith(loginResources:  const Resources.loading()));
     var response = await authUseCase.login(email: email, password: password);

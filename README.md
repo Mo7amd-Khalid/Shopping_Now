@@ -74,6 +74,11 @@ A Flutter project that you can make all authentication process (Login - Register
   <img src="readme_pic/13.jpg" width="250" height="500" />
 </p>
 
+### Your Profile
+<p align="center">
+  <img src="readme_pic/12.jpg" width="250" height="500" />
+</p>
+
 ## 📦 Packages Used
 
 - flutter_native_splash:

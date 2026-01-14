@@ -1,3 +1,4 @@
+import 'package:E_Commerce/features/auth/data/models/user_data_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:E_Commerce/network/results.dart';
 import 'package:E_Commerce/features/auth/data/models/auth_response_dto.dart';
@@ -27,5 +28,12 @@ class AuthUseCase {
     required String password,
 })async{
     return authRepo.login(email: email, password: password);
+  }
+  Future<void> logout() async{
+    authRepo.logout();
+  }
+
+  Future<Results<UserDataDto>> getUserData()async{
+    return authRepo.getUserData();
   }
 }

@@ -52,6 +52,8 @@ import '../../features/commerce/presentation/navigation_layout/tabs/categories/c
     as _i86;
 import '../../features/commerce/presentation/navigation_layout/tabs/home/cubit/cubit.dart'
     as _i1054;
+import '../../features/commerce/presentation/navigation_layout/tabs/profile/cubit/profile_cubit.dart'
+    as _i59;
 import '../../features/order/data/data_source/contract/cart_remote_data_source.dart'
     as _i572;
 import '../../features/order/data/data_source/impl/cart_remote_data_source_impl.dart'
@@ -95,6 +97,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i619.GetCategoriesRemoteDatasource>(
       () => _i606.GetCategoriesRemoteDatasourceImpl(gh<_i972.ApiClient>()),
     );
+    gh.factory<_i78.AuthRemoteDataSource>(
+      () => _i1071.AuthRemoteDataSourceImpl(gh<_i972.ApiClient>()),
+    );
     gh.factory<_i445.GetProductRemote>(
       () => _i932.GetProductRemoteImpl(gh<_i972.ApiClient>()),
     );
@@ -106,9 +111,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i137.CartRepository>(
       () => _i143.CartRepoImpl(gh<_i572.CartRemoteDataSource>()),
-    );
-    gh.factory<_i78.AuthRemoteDataSource>(
-      () => _i1071.AuthRemoteDataSourceImpl(gh<_i972.ApiClient>()),
     );
     gh.factory<_i48.CommerceRepo>(
       () => _i195.CommerceRepoImpl(
@@ -140,6 +142,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i14.LoginCubit>(() => _i14.LoginCubit(gh<_i701.AuthUseCase>()));
     gh.factory<_i404.RegisterCubit>(
       () => _i404.RegisterCubit(gh<_i701.AuthUseCase>()),
+    );
+    gh.factory<_i59.ProfileCubit>(
+      () => _i59.ProfileCubit(gh<_i701.AuthUseCase>()),
     );
     gh.factory<_i268.ProductListCubit>(
       () => _i268.ProductListCubit(gh<_i669.CommerceUseCase>()),
