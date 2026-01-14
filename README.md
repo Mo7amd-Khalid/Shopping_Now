@@ -34,17 +34,10 @@ A Flutter project that you can make all authentication process (Login - Register
 
 ## Authentication
 
-### Login
-![Login](readme_pic/1.jpg, width:100)
 
-### Register
-![Register](readme_pic/2.jpg)
+![Login](readme_pic/1.jpg, width:100) ![Register](readme_pic/2.jpg)
 
-### Forget Password
-![Send Verification Code](readme_pic/3.jpg)
-![Confirm The Verification Code](readme_pic/4.jpg)
-![Enter New Password](readme_pic/5.jpg)
-![Reset Password Done](readme_pic/6.jpg)
+![Send Verification Code](readme_pic/3.jpg) ![Confirm The Verification Code](readme_pic/4.jpg) ![Enter New Password](readme_pic/5.jpg) ![Reset Password Done](readme_pic/6.jpg)
 
 ### Home Screen
 ![Home Screen](readme_pic/7.jpg)
