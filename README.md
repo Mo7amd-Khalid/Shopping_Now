@@ -37,26 +37,42 @@ A Flutter project that you can make all authentication process (Login - Register
 <p align="center">
   <img src="readme_pic/1.jpg" width="250" height="500" />
   <img src="readme_pic/2.jpg" width="250" height="500" />
-  <img src="screenshots/cart.png" width="250" height="500" />
 </p>
 
-![Send Verification Code](readme_pic/3.jpg) ![Confirm The Verification Code](readme_pic/4.jpg) ![Enter New Password](readme_pic/5.jpg) ![Reset Password Done](readme_pic/6.jpg)
+## Forget Password
+<p align="center">
+  <img src="readme_pic/3.jpg" width="250" height="500" />
+  <img src="readme_pic/4.jpg" width="250" height="500" />
+  <img src="readme_pic/5.jpg" width="250" height="500" />
+  <img src="readme_pic/6.jpg" width="250" height="500" />
+</p>
 
 ### Home Screen
-![Home Screen](readme_pic/7.jpg)
+<p align="center">
+  <img src="readme_pic/7.jpg" width="250" height="500" />
+</p>
 
 ### Browse Categories & Products
-![Browse Categories](readme_pic/8.jpg)
-![Browse Products](readme_pic/11.jpg)
+<p align="center">
+  <img src="readme_pic/8.jpg" width="250" height="500" />
+  <img src="readme_pic/11.jpg" width="250" height="500" />
+</p>
+
 
 ### Product Details
-![Product Details](readme_pic/10.jpg)
+<p align="center">
+  <img src="readme_pic/10.jpg" width="250" height="500" />
+</p>
 
 ### Wish List Products
-![Wish List Products](readme_pic/9.jpg)
+<p align="center">
+  <img src="readme_pic/9.jpg" width="250" height="500" />
+</p>
 
 ### Cart Products
-![Cart Products](readme_pic/13.jpg)
+<p align="center">
+  <img src="readme_pic/13.jpg" width="250" height="500" />
+</p>
 
 ## 📦 Packages Used
 
